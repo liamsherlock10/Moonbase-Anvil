@@ -1,0 +1,63 @@
+components:
+- layout_properties: {slot: nav-right}
+  name: navbar_links
+  properties: {}
+  type: FlowPanel
+- components:
+  - event_bindings: {click: b_chatbot_click}
+    layout_properties: {grid_position: 'LRISER,SZTVOQ'}
+    name: b_chatbot
+    properties: {bold: true, role: tonal-button, text: Front Office}
+    type: Button
+  - event_bindings: {click: b_monitor_click}
+    layout_properties: {grid_position: 'QCKEGD,RKSEIK'}
+    name: b_monitor
+    properties: {bold: true, role: tonal-button, text: Back Office}
+    type: Button
+  - event_bindings: {click: b_searchers_click}
+    layout_properties: {grid_position: 'OQCQVV,ERBOZA'}
+    name: b_searchers
+    properties: {role: tonal-button, text: Searchers}
+    type: Button
+  - event_bindings: {click: b_investors_click}
+    layout_properties: {grid_position: 'OFTJJV,OXJBRT'}
+    name: b_investors
+    properties: {role: tonal-button, text: LP's}
+    type: Button
+  - event_bindings: {click: b_ma_click}
+    layout_properties: {grid_position: 'MFJCDE,GQHMQD'}
+    name: b_ma
+    properties: {role: tonal-button, text: M&A}
+    type: Button
+  - event_bindings: {click: b_newsletter_click}
+    layout_properties: {grid_position: 'RFTGEX,ABRCSL'}
+    name: b_newsletter
+    properties: {role: tonal-button, text: Newsletter}
+    type: Button
+  - event_bindings: {click: b_pa_click}
+    layout_properties: {grid_position: 'TNEQRC,ZDWRQI'}
+    name: b_pa
+    properties: {role: tonal-button, text: Assistant}
+    type: Button
+  - event_bindings: {click: b_scraper_click}
+    layout_properties: {grid_position: 'WGEEME,VLJTLB'}
+    name: b_scraper
+    properties: {role: tonal-button, text: Web Scraper}
+    type: Button
+  - event_bindings: {click: b_hubspot_click}
+    layout_properties: {grid_position: 'WXACOV,UZBHNK'}
+    name: b_hubspot
+    properties: {role: tonal-button, text: Hubspot}
+    type: Button
+  layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: default}
+  name: column_panel_2
+  properties: {}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+is_package: true

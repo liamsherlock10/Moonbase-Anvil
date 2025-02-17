@@ -1,0 +1,171 @@
+components:
+- layout_properties: {grid_position: 'EYKSEM,LKEODO'}
+  name: img_logo
+  properties: {height: 168.88888549804688, source: _/theme/Moonbase_Website_Logos-03.svg}
+  type: Image
+- layout_properties: {grid_position: 'EYKSEM,TGCIGW'}
+  name: image_1
+  properties: {source: _/theme/Luna Logo Oct-24.webp}
+  type: Image
+- layout_properties: {grid_position: 'XPAKUD,IYNSEZ'}
+  name: l_title
+  properties: {align: center, bold: true, font_size: 24, text: Luna Front Desk, underline: true}
+  type: Label
+- layout_properties: {grid_position: 'FDYSJP,GGXTQZ'}
+  name: l_user
+  properties: {text: 'User:'}
+  type: Label
+- event_bindings: {change: dd_user_change}
+  layout_properties: {grid_position: 'FDYSJP,VVMPEQ'}
+  name: dd_user
+  properties: {}
+  type: DropDown
+- layout_properties: {grid_position: 'FDYSJP,UYWFRV'}
+  name: sp_1
+  properties: {height: 32}
+  type: Spacer
+- event_bindings: {click: lk_promo_click}
+  layout_properties: {grid_position: 'FDYSJP,QGXHPP'}
+  name: lk_promo
+  properties: {align: center, foreground: 'theme:Primary', icon: 'fa:newspaper-o', role: title, text: CLICK for latest update 1-Oct}
+  type: Link
+- event_bindings: {click: link_1_click}
+  layout_properties: {grid_position: 'KZDYSG,XIUWDQ'}
+  name: link_1
+  properties: {bold: true, icon: 'fa:angle-down', text: 'Settings '}
+  type: Link
+- components:
+  - layout_properties: {grid_position: 'IZXPVV,YEAEOK'}
+    name: l_llm
+    properties: {align: center, bold: true, text: LLM}
+    type: Label
+  - layout_properties: {grid_position: 'IZXPVV,KVJIWW'}
+    name: l_context_length
+    properties: {align: center, bold: true, text: Context Length}
+    type: Label
+  - components:
+    - event_bindings: {}
+      layout_properties: {}
+      name: rb_llm_openai4
+      properties: {group_name: rb_llm, selected: true, text: GPT 4}
+      type: RadioButton
+    - event_bindings: {}
+      layout_properties: {}
+      name: rb_o1
+      properties: {group_name: rb_llm, text: OpenAI o1}
+      type: RadioButton
+    layout_properties: {grid_position: 'IXSNOE,TFCOHO'}
+    name: fp_llm
+    properties: {align: center, background: 'theme:On Secondary'}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'IXSNOE,YGVWTR QRWBBD,GBRJUM'}
+    name: dd_length
+    properties:
+      items: []
+    type: DropDown
+  - layout_properties: {grid_position: 'IXSNOE,YGVWTR SOTYRD,SWNDOH'}
+    name: chb_cot
+    properties: {text: Chain of Thought}
+    type: CheckBox
+  layout_properties: {grid_position: 'ICCFOE,WGAUJF'}
+  name: cp_settings
+  properties: {}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'IRQAHT,HVRQAN'}
+    name: l_prompt
+    properties: {text: 'What can I help you with?'}
+    type: Label
+  - event_bindings: {click: bt_clear_click}
+    layout_properties: {grid_position: 'IRQAHT,GTUMVC'}
+    name: bt_clear
+    properties: {role: tonal-button, text: Clear History}
+    type: Button
+  - layout_properties: {grid_position: 'NCIHZC,KIULMB'}
+    name: rt_reply
+    properties: {}
+    type: RichText
+  - layout_properties: {grid_position: 'AIZUFA,TGVODB ILAPKH,DWGRVN'}
+    name: ta_chat
+    properties: {}
+    type: TextArea
+  - layout_properties: {grid_position: 'AIZUFA,TGVODB UPFNDT,NONEZQ'}
+    name: l_status
+    properties: {bold: true, italic: true}
+    type: Label
+  - event_bindings: {change: cb_suggest_change}
+    layout_properties: {grid_position: 'AIZUFA,VNXARA XHUYGG,REZQTY'}
+    name: cb_suggest
+    properties: {text: Show Suggestions}
+    type: CheckBox
+  - event_bindings: {change: fl_chat_change}
+    layout_properties: {grid_position: 'AIZUFA,VNXARA FLXFJV,EFPFTA'}
+    name: fl_chat
+    properties: {text: Add File (Just to this conversation)}
+    type: FileLoader
+  - event_bindings: {click: bt_go_async_click}
+    layout_properties: {grid_position: 'AIZUFA,RTAREJ TOBLVW,TPTKLD'}
+    name: bt_go
+    properties: {font_size: 24, role: filled-button, text: Go}
+    type: Button
+  - components:
+    - components:
+      - layout_properties: {width: 600.4337939453125}
+        name: ta_suggest
+        properties:
+          height: 178.111083984375
+          text: |-
+            "Add Advisor X focusing on industries X, Geographies X..."
+            "Summarize Project X/Searcher X"
+            "Get the Complete Advisors File"
+            "Generate CIM for Project X"
+            "Attached is an Excel Sheet for PPM's. Fill it up"
+            "Attached is a list of Projects. Add a column with the suggested advisor"
+            "Generate Scorecard for Mr X, Mr X's PPM or Project X"
+            "Generate a List of Exits in Excel"
+            "Missing Mitigants for Project X"
+            "Generate a Graph with the Returns from Project X"
+            "Give me suitable Advisors for Mr. X"
+          visible: false
+        type: TextArea
+      name: fp_debug_copy
+      properties: {}
+      type: FlowPanel
+    layout_properties: {grid_position: 'PZUPQA,YEAHZM'}
+    name: fp_debug
+    properties: {}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'PZUPQA,BXBSOG'}
+    name: rt_files
+    properties: {content: '', font_size: 14}
+    type: RichText
+  - layout_properties: {grid_position: 'PZUPQA,TVQBYF'}
+    name: l_confidence
+    properties: {align: center, bold: true, font_size: 16, visible: true}
+    type: Label
+  - layout_properties: {grid_position: 'UPFUGC,XODHEN'}
+    name: ta_feedback
+    properties: {visible: false}
+    type: TextArea
+  - event_bindings: {click: ob_feedback_click}
+    layout_properties: {grid_position: 'UPFUGC,CJZQOY'}
+    name: ob_feedback
+    properties: {role: outlined-button, text: Send Feedback, visible: false}
+    type: Button
+  - layout_properties: {grid_position: 'WSVBZF,TEWUPZ'}
+    name: img_delta
+    properties: {height: 88.33331298828125, source: _/theme/Delta AI Logo Abr-24.png}
+    type: Image
+  - event_bindings: {tick: timer_1_tick}
+    layout_properties: {grid_position: 'FJDNSI,RWTZIK'}
+    name: timer_1
+    properties: {}
+    type: Timer
+  layout_properties: {grid_position: 'PCVDBQ,MJXMCZ'}
+  name: cp_chat
+  properties: {col_widths: '{"TGVODB":50,"RTAREJ":10,"XODHEN":50,"CJZQOY":10,"YEAHZM":50,"TVQBYF":10}'}
+  type: ColumnPanel
+container:
+  properties: {col_widths: '{"GGXTQZ":6,"VVMPEQ":9,"QGXHPP":21,"LKEODO":45,"TGCIGW":15}'}
+  type: ColumnPanel
+is_package: true

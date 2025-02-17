@@ -1,0 +1,54 @@
+components:
+- components:
+  - event_bindings: {change: dd_sources_change}
+    layout_properties: {grid_position: 'GEHDBM,CJAKBV'}
+    name: dd_sources
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'GEHDBM,KSYUCD'}
+    name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+  - components:
+    - event_bindings: {}
+      layout_properties: {grid_position: 'GYEJSI,QORVYS'}
+      name: lk_hubspot
+      properties: {bold: true, font_size: 18, italic: false, text: Companies}
+      type: Link
+    layout_properties: {grid_position: 'RQBGVE,JUYXVF'}
+    name: oc_hubspot
+    properties: {col_widths: '{}', role: outlined-card}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'TPIXNM,LRRQVH'}
+    name: l_hs_items
+    properties: {bold: true, font_size: 18, italic: false, text: Companies, underline: true}
+    type: Label
+  - components:
+    - name: rp_hs_items
+      properties: {item_template: Main.Monitor.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'JELZQY,QHRIJV'}
+    name: dg_hs_items
+    properties:
+      columns:
+      - {data_key: name, expand: false, id: VJQQOR, title: Name, width: 523.4443969726562}
+      - {data_key: url, expand: false, id: OJLQEN, title: URL, width: 325.6666259765625}
+    type: DataGrid
+  layout_properties: {slot: default}
+  name: cp_hubspot
+  properties: {col_widths: '{"CJAKBV":20,"KSYUCD":40}'}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: nv_hubspot
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: l_hubspot
+  properties: {text: Hubspot}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+custom_component: false
+custom_component_container: true
+is_package: true

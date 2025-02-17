@@ -1,0 +1,105 @@
+components:
+- components:
+  - components:
+    - event_bindings: {}
+      layout_properties: {grid_position: 'GYEJSI,QORVYS'}
+      name: lk_investors
+      properties: {bold: true, font_size: 18, italic: false, text: 0 LP's}
+      type: Link
+    - layout_properties: {grid_position: 'KNIBZB,JKDVPG'}
+      name: l_positions
+      properties: {visible: true}
+      type: Label
+    layout_properties: {grid_position: 'RQBGVE,JUYXVF'}
+    name: oc_investors
+    properties: {col_widths: '{"NFCMDK":20}', role: outlined-card}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'TPIXNM,LRRQVH'}
+    name: l_lp_status
+    properties: {bold: true, font_size: 18, italic: false, text: LP Status, underline: true}
+    type: Label
+  - components:
+    - name: rp_lps
+      properties: {item_template: Main.Monitor.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'BQTYSS,OGTHFI'}
+    name: dg_lps
+    properties:
+      columns:
+      - {data_key: lp, id: VJQQOR, title: Name, width: '100'}
+      - {data_key: stake, id: OJLQEN, title: Stake, width: '100'}
+      - {data_key: date, id: WXFASL, title: Last Touch}
+      - {data_key: status, id: ENAMFR, title: Last Done}
+      - {data_key: feedback, id: JKSDUP, title: To Do}
+    type: DataGrid
+  - layout_properties: {grid_position: 'BYCPJU,AUOOZY'}
+    name: l_chatbot
+    properties: {bold: true, font_size: 18, italic: false, text: LP Chatbot, underline: true}
+    type: Label
+  - layout_properties: {grid_position: 'TIYRHV,NTGCSV'}
+    name: l_prompt
+    properties: {text: 'What can I help you with?'}
+    type: Label
+  - event_bindings: {click: bt_clear_click}
+    layout_properties: {grid_position: 'TIYRHV,JSMOJX'}
+    name: bt_clear
+    properties: {role: tonal-button, text: Clear History}
+    type: Button
+  - layout_properties: {grid_position: 'IHEWDZ,DSLPBD FGBPGD,QPSEKK'}
+    name: rt_reply
+    properties: {}
+    type: RichText
+  - layout_properties: {grid_position: 'IHEWDZ,DSLPBD KTTIHH,DOYENH'}
+    name: ta_chat
+    properties: {}
+    type: TextArea
+  - event_bindings: {click: bt_go_async_click}
+    layout_properties: {grid_position: 'IHEWDZ,RRICFU NWJXHB,WXZQUM'}
+    name: bt_go
+    properties: {font_size: 24, role: filled-button, text: Go}
+    type: Button
+  - event_bindings: {change: cb_suggest_change}
+    layout_properties: {grid_position: 'IHEWDZ,RRICFU ZVJPXD,ITMFLM'}
+    name: cb_suggest
+    properties: {text: Show Suggestions}
+    type: CheckBox
+  - layout_properties: {grid_position: 'HVPQCU,AHGMDH'}
+    name: l_status
+    properties: {bold: true, italic: true}
+    type: Label
+  - layout_properties: {grid_position: 'WGROHH,IKUPFV'}
+    name: ta_suggest
+    properties:
+      height: 178.111083984375
+      text: |-
+        "Add Advisor X focusing on industries X, Geographies X..."
+        "Summarize Project X/Searcher X"
+        "Get the Complete Advisors File"
+        "Generate CIM for Project X"
+        "Attached is an Excel Sheet for PPM's. Fill it up"
+        "Attached is a list of Projects. Add a column with the suggested advisor"
+        "Generate Scorecard for Mr X, Mr X's PPM or Project X"
+        "Generate a List of Exits in Excel"
+        "Missing Mitigants for Project X"
+        "Generate a Graph with the Returns from Project X"
+        "Give me suitable Advisors for Mr. X"
+      visible: false
+    type: TextArea
+  layout_properties: {slot: default}
+  name: cp_investors
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: nv_links
+  properties: {}
+  type: FlowPanel
+- layout_properties: {slot: title}
+  name: l_investors
+  properties: {text: LP's}
+  type: Label
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+custom_component: false
+custom_component_container: true
+is_package: true

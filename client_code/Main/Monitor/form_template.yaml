@@ -1,0 +1,137 @@
+components:
+- components:
+  - layout_properties: {grid_position: 'GSVBNB,NHCQUV'}
+    name: rt_news
+    properties:
+      content: |-
+        **LUNA NEWS**
+        7-Jan: **You can ask Luna to send out an email to someone**
+        19-Jan: **Luna will retrieve already generated Scorecards**
+        20-Jan: **Cleaner responses and file extraction**
+        23-Jan: **Automatic Scorecard Creation for New PPMs**
+        29-Jan: **Quicker Response Times**
+        30-Jan: **Automatic Searcher Scorecard Agent**
+        6-Feb: **Agent for Complex Queries**
+    type: RichText
+  - layout_properties: {grid_position: 'GSVBNB,MFEGSP'}
+    name: rt_tasks
+    properties:
+      content: |-
+        **IN PROGRESS**
+        29-Aug: DD Scorecard Agent
+        18-Oct: Searcher Decision Based on Scorecard
+        24-Oct: New Investment Opportunities
+        25-Oct: Advisor Agent
+        6-Nov: Newletter Agent
+        9-Nov: Feed Call Transcripts directly
+        12-Nov: IM Agent
+        13-Nov: DecileHub Integration
+        15-Nov: Automatic Duplicate Removal
+        16-Nov: HubSpot Integration
+        20-Nov: Next Steps for PPM's
+        21-Nov: Next Steps for IM's
+        24-Nov: Sync with Google Drive
+        26-Nov: M&A Workflow
+        27-Nov: Performance Tracking Workflow
+        7-Dec: Fill Scorecard Header
+        8-Dec: e-Mail Agent
+        9-Dec: Advanced Image Generation
+        12-Dec: Automatic Interview Ingestion
+        3-Jan: Test o1 Models
+        16-Ene: Create Appointments
+        21-Ene: Use DALL-E for Graphics
+        3-Feb: Explore Alternative Architectures Around ChatGPT
+        4-Feb: Reformat IM's in order to make them more readable
+        7-Feb: Be able to Review Draft e-Mails
+    type: RichText
+  - components:
+    - event_bindings: {click: lk_filesuploaded_click}
+      layout_properties: {grid_position: 'GYEJSI,QORVYS'}
+      name: lk_filesuploaded
+      properties: {bold: true, font_size: 18, italic: false, text: 0 Files Uploaded}
+      type: Link
+    - event_bindings: {click: lk_filedetail_click}
+      layout_properties: {grid_position: 'DJJNAU,FOLKVS'}
+      name: lk_filedetail
+      properties: {visible: false}
+      type: Link
+    - event_bindings: {change: dd_directory_change}
+      layout_properties: {grid_position: 'KNIBZB,QHFMBN'}
+      name: dd_directory
+      properties: {include_placeholder: true, placeholder: All}
+      type: DropDown
+    - layout_properties: {grid_position: 'KNIBZB,JKDVPG'}
+      name: l_filelist
+      properties: {visible: true}
+      type: Label
+    - layout_properties: {grid_position: 'EPZSRE,MIANOD'}
+      name: l_upload
+      properties: {bold: true, font_size: 18, text: Upload New Files to Luna, underline: false}
+      type: Label
+    - event_bindings: {change: fl_upload_change}
+      layout_properties: {grid_position: 'EPZSRE,NYLPRT'}
+      name: fl_upload
+      properties: {align: left, file_types: 'pdf,xlsx,txt,pptx,zip', multiple: true}
+      type: FileLoader
+    - layout_properties: {grid_position: 'EPZSRE,NFCMDK'}
+      name: l_uploaded
+      properties: {}
+      type: Label
+    layout_properties: {grid_position: 'RQBGVE,JUYXVF'}
+    name: oc_files
+    properties: {col_widths: '{"MIANOD":25,"NYLPRT":30,"NFCMDK":20,"QHFMBN":20,"JKDVPG":40}', role: outlined-card}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'TPIXNM,LRRQVH'}
+    name: l_user
+    properties: {bold: true, font_size: 18, italic: false, text: User Requests, underline: true}
+    type: Label
+  - components:
+    - name: rp_history_user
+      properties: {item_template: Main.Monitor.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {full_width_row: true, grid_position: 'JELZQY,QHRIJV'}
+    name: dg_history_user
+    properties:
+      columns:
+      - {data_key: when, id: VJQQOR, title: When, width: '100'}
+      - {data_key: user, id: OJLQEN, title: User, width: '100'}
+      - {data_key: texto, id: WXFASL, title: Question}
+      - {data_key: reply, id: ENAMFR, title: Reply}
+      - {data_key: feedback, id: JKSDUP, title: Feedback}
+    type: DataGrid
+  - layout_properties: {grid_position: 'ZMSZPA,VEYBUI'}
+    name: l_bot
+    properties: {bold: true, font_size: 18, italic: false, text: Agent Actions, underline: true}
+    type: Label
+  - components:
+    - name: rp_history_bot
+      properties: {item_template: Main.Monitor.RowTemplate1}
+      type: RepeatingPanel
+    layout_properties: {full_width_row: true, grid_position: 'LVSOJQ,WJKZQO'}
+    name: dg_history_bot
+    properties:
+      columns:
+      - {data_key: when, id: VJQQOR, title: When, width: '100'}
+      - {data_key: user, id: OJLQEN, title: Agent, width: '100'}
+      - {data_key: texto, id: WXFASL, title: Task}
+      - {data_key: reply, id: ENAMFR, title: Result}
+    type: DataGrid
+  - components: []
+    layout_properties: {grid_position: 'DTSDFM,BOHEYA'}
+    name: lk_detail
+    properties: {bold: true, col_widths: '{}', font_size: 24, text: Click for Detailed Project Progress, underline: true, url: 'https://www.notion.so/Apollo-I-f7f1b624a1b24714aee82bf16a0a4542?pvs=4'}
+    type: Link
+  layout_properties: {slot: default}
+  name: cp_monitor
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {slot: nav-right}
+  name: nv_links
+  properties: {}
+  type: FlowPanel
+container:
+  properties: {html: '@theme:standard-page.html'}
+  type: HtmlTemplate
+custom_component: false
+custom_component_container: true
+is_package: true
