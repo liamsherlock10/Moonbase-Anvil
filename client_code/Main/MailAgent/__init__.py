@@ -21,17 +21,20 @@ class Form1(): #Form1Template parameter for the class?
         
         # Do something with the chosen model, e.g. call a server function
         if chosen_model:
-            anvil.server.call("use_model", chosen_model)
+            #anvil.server.call("use_model", chosen_model)
+            print("use model" + chosen_model)
         else:
             alert("Please select a model first.")
 
     def radio_4o_change(self, **event_args):
       if self.radio_4o.selected:
-          anvil.server.call("use_model", "4o")
+          #anvil.server.call("use_model", "4o")
+          print("use model 4o")
 
     def radio_o1_change(self, **event_args):
       if self.radio_o1.selected:
-          anvil.server.call("use_model", "o1")
+          print("use model o1")
+          #anvil.server.call("use_model", "o1")
 
   # Server Module code
     def use_model(self, model_name):
