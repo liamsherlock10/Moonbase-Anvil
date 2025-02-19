@@ -5,7 +5,7 @@ from anvil.google.drive import app_files
 import anvil.server
 import re
 
-class Form1(Form1Template):
+class Form1(): #Form1Template parameter for the class?
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
