@@ -12,9 +12,10 @@ components:
   name: recipient_label
   properties: {text: 'Who are you sending this email to?'}
   type: Label
-- layout_properties: {grid_position: 'NRBIJR,NRPFFZ'}
+- data_bindings: []
+  layout_properties: {grid_position: 'NRBIJR,NRPFFZ'}
   name: reecipient_textbox
-  properties: {}
+  properties: {placeholder: Enter Email Adresses here..., text: ''}
   type: TextBox
 - layout_properties: {grid_position: 'ZWGDMD,HYJSYS'}
   name: subject_label
@@ -22,16 +23,16 @@ components:
   type: Label
 - layout_properties: {grid_position: 'KKGLFI,BCPRDN'}
   name: subject_textbox
-  properties: {}
+  properties: {placeholder: Enter subject here...}
   type: TextBox
 - layout_properties: {grid_position: 'MPLWTP,KIRNPB'}
   name: message_label
   properties: {text: 'Message:'}
   type: Label
-- layout_properties: {grid_position: 'WPTMAR,NREEGC'}
-  name: message_textbox
-  properties: {}
-  type: TextBox
+- layout_properties: {grid_position: 'OFLQAY,SDARPG'}
+  name: message_rich_text
+  properties: {content: '', format: restricted_html}
+  type: RichText
 - layout_properties: {grid_position: 'ZMVVXC,QPVRXX'}
   name: spacer_1
   properties: {height: 32}
@@ -41,13 +42,16 @@ components:
   name: send_button
   properties:
     spacing:
-      padding: [null, 43, null, null]
+      padding: [null, 42, null, 35]
     text: Send
   type: Button
 - event_bindings: {click: cancel_button_click}
-  layout_properties: {grid_position: 'HBPJCP,LKJXQU'}
+  layout_properties: {grid_position: 'LKRMTT,JAYOWW'}
   name: cancel_button
-  properties: {text: Cancel}
+  properties:
+    spacing:
+      padding: [null, 32, null, 26]
+    text: Cancel
   type: Button
 container:
   properties: {col_widths: '{}', visible: true}

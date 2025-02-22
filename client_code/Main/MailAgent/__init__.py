@@ -26,24 +26,36 @@ class MailAgent(MailAgentTemplate):
       any list that is coming from state to the same format
       '''
       if isinstance(State.mail_to, list):
-        self.text_to.text = ";".join(State.mail_to)
+        self.reecipient_textbox.text = ";".join(State.mail_to)
       else:
         # In case it's just a string or None
-        self.text_to.text = State.mail_to or ""
+        self.reecipient_textbox.text = State.mail_to or ""
       
-      self.text_subject.text = State.mail_subject or ""
+      self.subject_textbox.text = State.mail_subject or ""
       # For a RichText component, use .content to set HTML/text
-      self.rich_text_body.content = State.mail_text or ""
+      self.message_rich_text.content = State.mail_text or ""
 
     def send_button_click(self, **event_args):
       """Called when the user clicks the 'Send' button"""
-      # Split recipients by semicolon
+
+      '''
+      This line below is designed to allow for a user to separate recipients
+      with commas as well to be more user friendly. commented out for now, but 
+      could be a good idea in the future because email adresses don't have comamas. 
+      '''
+      #recipients_str = self.reecipient_textbox.text.replace(",", ";")
+      
       recipients = [
-        r.strip() for r in self.text_to.text.split(";") if r.strip()
+        r.strip() for r in self.reecipient_textbox.text.split(";") if r.strip()
       ]
+
+      #checking to make sure that recipients box is filled with at least one person
+      if not recipients:
+        alert("Please enter at least one recipient.")
+        return
       
       subject = self.subject_textbox.text
-      body = self.message_textbox.text  # content returns the rich text's HTML/text
+      body = self.message_rich_text.content  # content returns the rich text's HTML/text
       
       # Call the server function (already defined in your Server Module)
       anvil.server.call('send_email', recipients, subject, body)
@@ -94,7 +106,7 @@ class MailAgent(MailAgentTemplate):
       # Grab the user's subject and message from the text boxes
       recipient = self.recipient_textbox.text or ""
       subject = self.subject_textbox.text or ""
-      body = self.message_textbox.text or ""
+      body = self.message_rich_text.content or ""
       
       # For now, let's just demonstrate the placeholders
       if model_choice is None:
