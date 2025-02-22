@@ -6,61 +6,59 @@ import anvil.server
 import re
 from .. import State #just copied over, assume .. needs to be replaced
 
+'''
+This code has a lot of AI generated comments, I have been working on it using
+AI and haven't decided to rewrite comments yet, so for the purpose of acccurate
+documentation, I have decided to maintain the AI generated stuff. 
+'''
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
       # Set Form properties and Data Bindings.
       self.init_components(**properties)
-      self.dd_length.items = [
-        ("1", 1),
-        ("2", 2),
-        ("5", 5),
-        ("10", 10),
-        ("30", 30),
-        ("50", 50),
-      ]
-      self.dd_length.selected_value = 30
-      self.dd_user.items = [
-        ("Anonymous", 0),
-        ("Ibrahim", 1),
-        ("Nejma", 2),
-        ("Aly", 3),
-        ("Luca", 4),
-        ("Diego", 5),
-      ]
-      self.cp_settings.visible = False
-      self.link_1.icon = "fa:angle-down"
-      self.file_id = ""
-      self.docs = anvil.server.call("list_docs")
-      try:
-        cur_user = anvil.server.call("alive")
-        self.dd_user.selected_value = cur_user
-        self.dd_user_change()
-      except Exception as e:
-        print(f"{e}")
-        alert(
-          "Lost connection to LUNA Server. Please try again and if it fails, contact diego.montoliu@delta-ai.com"
-        )
-        anvil.server.reset_session()
+      # On form load, populate the fields from State
+      # (Adjust for how you store multiple recipients in State.mail_to)
+      
+      # If the State has recipients as a list, this is supposed to handle it
+      '''
+      I have concerns about this because I don't know if the user is going to
+      split up contacts with commas, spaces or anything else. Right now I am 
+      instructing the user to split up entries with semicolons, and then changing 
+      any list that is coming from state to the same format
+      '''
+      if isinstance(State.mail_to, list):
+        self.text_to.text = ";".join(State.mail_to)
+      else:
+        # In case it's just a string or None
+        self.text_to.text = State.mail_to or ""
+      
+      self.text_subject.text = State.mail_subject or ""
+      # For a RichText component, use .content to set HTML/text
+      self.rich_text_body.content = State.mail_text or ""
 
     def send_button_click(self, **event_args):
-      # 1. Gather user input from your text boxes
-      recipient = self.recipient_textbox.text
+      """Called when the user clicks the 'Send' button"""
+      # Split recipients by semicolon
+      recipients = [
+        r.strip() for r in self.text_to.text.split(";") if r.strip()
+      ]
+      
       subject = self.subject_textbox.text
-      body = self.message_textbox.text
+      body = self.message_textbox.text  # content returns the rich text's HTML/text
       
-      # 2. Check if recipient is provided (basic validation)
-      if not recipient:
-        alert("Please enter a recipient email address.")
-        return
+      # Call the server function (already defined in your Server Module)
+      anvil.server.call('send_email', recipients, subject, body)
       
-      # 3. Call your server function to send the message
-      result = anvil.server.call("send_message", recipient, subject, body)
+      # Update State variables
+      State.mail_to = recipients
+      State.mail_subject = subject
+      State.mail_text = body
       
-      # 4. Optionally, alert the user with the result or clear the form
-      alert(f"Server says: {result}")
-      self.recipient_box.text = ""
-      self.subject_box.text = ""
-      self.message_textbox.text = ""
+      # Show the Main form (assuming you have a form named "Main" in your app)
+      open_form("Main")
+
+    def cancel_button_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form("Main") #Should this go to a different page instead?
     
 
 
