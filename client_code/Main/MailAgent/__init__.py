@@ -4,6 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
+from .. import State #just copied over, assume .. needs to be replaced
 
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
@@ -40,26 +41,32 @@ class MailAgent(MailAgentTemplate):
           "Lost connection to LUNA Server. Please try again and if it fails, contact diego.montoliu@delta-ai.com"
         )
         anvil.server.reset_session()
+
+    def send_button_click(self, **event_args):
+      # 1. Gather user input from your text boxes
+      recipient = self.recipient_textbox.text
+      subject = self.subject_textbox.text
+      body = self.message_textbox.text
+      
+      # 2. Check if recipient is provided (basic validation)
+      if not recipient:
+        alert("Please enter a recipient email address.")
+        return
+      
+      # 3. Call your server function to send the message
+      result = anvil.server.call("send_message", recipient, subject, body)
+      
+      # 4. Optionally, alert the user with the result or clear the form
+      alert(f"Server says: {result}")
+      self.recipient_box.text = ""
+      self.subject_box.text = ""
+      self.message_textbox.text = ""
     
-    def submit_button_click(self, **event_args):
-        # Check which radio button is selected:
-        if self.radio_4o.selected:
-            chosen_model = "4o"
-        elif self.radio_o1.selected:
-            chosen_model = "o1"
-        else:
-            chosen_model = None
-        
-        # Do something with the chosen model, e.g. call a server function
-        if chosen_model:
-            #anvil.server.call("use_model", chosen_model)
-            print("use model" + chosen_model)
-        else:
-            alert("Please select a model first.")
 
 
 
 
+'''
   #Radio button for using 4o
     def radio_4o_change(self, **event_args):
       if self.radio_4o.selected:
@@ -108,5 +115,5 @@ class MailAgent(MailAgentTemplate):
       
       # Optionally, populate the text_box_1 with the generated draft
       self.text_box_1.text = draft
-
+'''
 

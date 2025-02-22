@@ -8,18 +8,6 @@ components:
       padding: [0, 0, 0, 0]
     text: Welcome To Luna
   type: Label
-- layout_properties: {grid_position: 'URPVMV,CLKPKX'}
-  name: llm_label
-  properties: {text: 'Select Your Model: '}
-  type: Label
-- layout_properties: {grid_position: 'APNJVQ,ZPGMQC'}
-  name: GPT_o4
-  properties: {enabled: true, group_name: model_selection, text: GPT_o4}
-  type: RadioButton
-- layout_properties: {grid_position: 'WYBVXJ,EWDHAA'}
-  name: GPT_o1
-  properties: {group_name: model_selection, text: GPT_o1}
-  type: RadioButton
 - layout_properties: {grid_position: 'ZJLUTA,OOSWVF'}
   name: recipient_label
   properties: {text: 'Who are you sending this email to?'}
@@ -48,10 +36,6 @@ components:
   name: spacer_1
   properties: {height: 32}
   type: Spacer
-- layout_properties: {grid_position: 'YBXCOA,QSSJOK'}
-  name: generate_button
-  properties: {text: Generate}
-  type: Button
 - layout_properties: {grid_position: 'ULEJWO,FTFZZY'}
   name: send_button
   properties:
