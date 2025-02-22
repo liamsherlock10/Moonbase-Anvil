@@ -1,6 +1,6 @@
 components:
 - layout_properties: {grid_position: 'FDYSJP,UJPYXX'}
-  name: label_1
+  name: welcome_label
   properties:
     align: center
     font_size: 24
@@ -25,7 +25,7 @@ components:
   properties: {text: 'Who are you sending this email to?'}
   type: Label
 - layout_properties: {grid_position: 'NRBIJR,NRPFFZ'}
-  name: reecipient_box
+  name: reecipient_textbox
   properties: {}
   type: TextBox
 - layout_properties: {grid_position: 'ZWGDMD,HYJSYS'}
@@ -33,7 +33,7 @@ components:
   properties: {text: 'Subject:'}
   type: Label
 - layout_properties: {grid_position: 'KKGLFI,BCPRDN'}
-  name: subject_box
+  name: subject_textbox
   properties: {}
   type: TextBox
 - layout_properties: {grid_position: 'MPLWTP,KIRNPB'}
@@ -41,7 +41,7 @@ components:
   properties: {text: 'Message:'}
   type: Label
 - layout_properties: {grid_position: 'WPTMAR,NREEGC'}
-  name: text_box_1
+  name: message_textbox
   properties: {}
   type: TextBox
 - layout_properties: {grid_position: 'ZMVVXC,QPVRXX'}
@@ -53,14 +53,14 @@ components:
   properties: {text: Generate}
   type: Button
 - layout_properties: {grid_position: 'ULEJWO,FTFZZY'}
-  name: submit
+  name: send_button
   properties:
     spacing:
       padding: [null, 43, null, null]
     text: Send
   type: Button
 - layout_properties: {grid_position: 'HBPJCP,LKJXQU'}
-  name: cancel
+  name: cancel_button
   properties: {text: Cancel}
   type: Button
 container:
