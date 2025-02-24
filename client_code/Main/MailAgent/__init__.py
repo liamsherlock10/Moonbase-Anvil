@@ -32,7 +32,7 @@ class MailAgent(MailAgentTemplate):
         self.reecipient_textbox.text = State.mail_to or ""
       
       self.subject_textbox.text = State.mail_subject or ""
-      # For a RichText component, use .content to set HTML/text
+      
       self.message_rich_text.content = State.mail_text or ""
 
     def send_button_click(self, **event_args):
