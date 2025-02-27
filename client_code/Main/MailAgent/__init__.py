@@ -4,7 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-from .. import State #just copied over, assume .. needs to be replaced
+from .. import State
 
 '''
 This code has a lot of AI generated comments, I have been working on it using
