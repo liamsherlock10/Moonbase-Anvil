@@ -33,7 +33,12 @@ class MailAgent(MailAgentTemplate):
       
       self.subject_textbox.text = State.mail_subject or ""
       
-      self.message_rich_text.content = State.mail_text or ""
+      self.message_rich_text.text = State.mail_text or ""
+
+      self.reecipient_textbox.enabled = True
+      self.subject_textbox.enabled = True
+      self.message_rich_text.enabled = True  # If using RichText, allow user input
+
 
     def send_button_click(self, **event_args):
       """Called when the user clicks the 'Send' button"""
