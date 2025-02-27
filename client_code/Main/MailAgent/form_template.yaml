@@ -29,9 +29,20 @@ components:
   name: message_label
   properties: {text: 'Message:'}
   type: Label
-- layout_properties: {grid_position: 'OFLQAY,SDARPG'}
+- layout_properties: {grid_position: 'PLGGLE,MQSDYL'}
+  name: rich_text_tester
+  properties: {}
+  type: RichText
+- data_bindings: []
+  layout_properties: {grid_position: 'OFLQAY,SDARPG'}
   name: message_rich_text
-  properties: {content: 'Hello, this is Liam, I am welcoming you to our new Email Agent Format', format: restricted_html}
+  properties:
+    content: Hello, this is Liam, I am welcoming you to our new Email Agent Format
+    format: restricted_html
+    spacing:
+      padding: [0, null, 0, null]
+    spacing_above: small
+    visible: true
   type: RichText
 - layout_properties: {grid_position: 'ZMVVXC,QPVRXX'}
   name: spacer_1
