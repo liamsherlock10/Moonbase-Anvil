@@ -25,23 +25,28 @@ class MailAgent(MailAgentTemplate):
       instructing the user to split up entries with semicolons, and then changing 
       any list that is coming from state to the same format
       '''
-      if isinstance(State.mail_to, list):
-        self.reecipient_textbox.text = ";".join(State.mail_to)
-      else:
-        # In case it's just a string or None
-        self.reecipient_textbox.text = State.mail_to or ""
       
-      self.subject_textbox.text = State.mail_subject or ""
-      
-      self.message_rich_text.text = State.mail_text or ""
-
       #enabling the recipient and subject textboxes
       self.reecipient_textbox.enabled = True
       self.subject_textbox.enabled = True
 
       #setting up the Richtext box
+      self.message_rich_text.enable_editor = True
       self.message_rich_text.enabled = True
       self.message_rich_text.read_only = False
+
+      
+      if isinstance(State.mail_to, list):
+        self.reecipient_textbox.text = ";".join(State.mail_to)
+      else:
+        self.reecipient_textbox.text = State.mail_to or "" # In case it's just a string or None
+      
+      self.subject_textbox.text = State.mail_subject or ""
+      
+      self.message_rich_text.content = State.mail_text or ""
+
+      
+
 
 
 
@@ -65,7 +70,7 @@ class MailAgent(MailAgentTemplate):
         return
       
       subject = self.subject_textbox.text
-      body = self.message_rich_text.text  # content returns the rich text's HTML/text
+      body = self.message_rich_text.content  # content returns the rich text's HTML/text
       
       # Call the server function (already defined in your Server Module)
       anvil.server.call('send_email', recipients, subject, body)
