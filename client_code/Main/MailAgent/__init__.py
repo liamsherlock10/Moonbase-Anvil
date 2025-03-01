@@ -30,11 +30,16 @@ class MailAgent(MailAgentTemplate):
       self.reecipient_textbox.enabled = True
       self.subject_textbox.enabled = True
 
+      
+      self.text_area_tester.enabled = True
+      self.text_area_tester.text = State.mail_text or ""
+
+
       #setting up the Richtext box
       self.message_rich_text.enable_editor = True
       self.message_rich_text.enabled = True
       self.message_rich_text.read_only = False
-
+  
       
       if isinstance(State.mail_to, list):
         self.reecipient_textbox.text = ";".join(State.mail_to)
@@ -70,6 +75,7 @@ class MailAgent(MailAgentTemplate):
         return
       
       subject = self.subject_textbox.text
+      #self.message_rich_text = self.text_area_tester.text
       body = self.message_rich_text.content  # content returns the rich text's HTML/text
       
       # Call the server function (already defined in your Server Module)
