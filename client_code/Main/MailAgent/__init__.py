@@ -10,6 +10,9 @@ from .. import State
 This code has a lot of AI generated comments, I have been working on it using
 AI and haven't decided to rewrite comments yet, so for the purpose of acccurate
 documentation, I have decided to maintain the AI generated stuff. 
+
+Note: we are using liam.ipynb for server functions, 
+at least that is what was being used in the last test
 '''
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
