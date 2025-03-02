@@ -78,8 +78,10 @@ class MailAgent(MailAgentTemplate):
         return
       
       subject = self.subject_textbox.text
-      #self.message_rich_text = self.text_area_tester.text
-      body = self.message_rich_text.content  # content returns the rich text's HTML/text
+      '''This is what is supposed to be used in the end, using another component
+      in order to test out if the email formatting gets fixed by this change'''
+      #body = self.message_rich_text.content  # content returns the rich text's HTML/text
+      body = self.text_area_tester.text
       
       # Call the server function (already defined in your Server Module)
       anvil.server.call('send_email', recipients, subject, body)
