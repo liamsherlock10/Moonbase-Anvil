@@ -3,6 +3,7 @@ components:
   name: welcome_label
   properties:
     align: center
+    bold: true
     font_size: 24
     spacing:
       padding: [0, 0, 0, 0]
@@ -29,6 +30,10 @@ components:
   name: message_label
   properties: {text: 'Message:'}
   type: Label
+- layout_properties: {grid_position: 'PPHVLS,SHYWGW'}
+  name: message_textbox
+  properties: {}
+  type: TextArea
 - data_bindings: []
   layout_properties: {grid_position: 'OFLQAY,SDARPG'}
   name: message_rich_text
@@ -38,12 +43,8 @@ components:
     spacing:
       padding: [0, null, 0, null]
     spacing_above: small
-    visible: true
+    visible: false
   type: RichText
-- layout_properties: {grid_position: 'ZVUXUY,JTGIMQ'}
-  name: text_area_tester
-  properties: {}
-  type: TextArea
 - layout_properties: {grid_position: 'ZMVVXC,QPVRXX'}
   name: spacer_1
   properties: {height: 32}

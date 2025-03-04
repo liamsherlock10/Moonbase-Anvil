@@ -28,14 +28,16 @@ class MailAgent(MailAgentTemplate):
       instructing the user to split up entries with semicolons, and then changing 
       any list that is coming from state to the same format
       '''
+
+      #self.welcome_label.
       
       #enabling the recipient and subject textboxes
       self.recipient_textbox.enabled = True
       self.subject_textbox.enabled = True
 
       
-      self.text_area_tester.enabled = True
-      self.text_area_tester.text = State.mail_text or ""
+      self.message_textbox.enabled = True
+      self.message_textbox.text = State.mail_text or ""
 
 
       #setting up the Richtext box
@@ -52,8 +54,9 @@ class MailAgent(MailAgentTemplate):
       self.recipient_textbox.text = State.mail_to or ""
       
       self.subject_textbox.text = State.mail_subject or ""
-      
-      self.message_rich_text.content = State.mail_text or ""
+
+      self.message_textbox.text = State.mail_text or ""
+      #self.message_rich_text.content = State.mail_text or ""
 
       
 
@@ -87,8 +90,15 @@ class MailAgent(MailAgentTemplate):
       subject = self.subject_textbox.text
       '''This is what is supposed to be used in the end, using another component
       in order to test out if the email formatting gets fixed by this change'''
-      #body = self.message_rich_text.content  # content returns the rich text's HTML/text
-      body = self.text_area_tester.text
+
+      '''
+      Right here I am converting the textbox into the richText HTML because 
+      I was unable to get the richTextBox to be editable. I would like to fix this
+      long term but it still works right now, and I think that because it is 
+      switching to HTML, it will still have the stability bonus provided by RichText'''
+      self.message_rich_text.content = self.message_textbox.text
+      #body = self.message_textbox.text
+      body = self.message_rich_text.content
 
       print("recipients: " + recipients + "type: " + str(type(recipients)))
       # Call the server function (already defined in your Server Module)
