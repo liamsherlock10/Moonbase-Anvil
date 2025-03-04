@@ -8,9 +8,7 @@ from anvil.google.drive import app_files
 #
 #    Module1.say_hello()
 #
-mail_to = "liamsherlock55@gmail.com"
-mail_subject = "Welcome Message"
-mail_text = "Hello Liam, I would like to welcome you to this EmailAgent."
+mail_to = "liamsherlock55@gmail.com"#"liamsherlock.tester@gmail.com"
+mail_subject = "Hello"
+mail_text = "Hello"
 
-def say_hello():
-  print("Hello, world")

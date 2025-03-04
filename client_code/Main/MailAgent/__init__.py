@@ -4,7 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-from .. import State
+from .. import State 
 
 '''
 This code has a lot of AI generated comments, I have been working on it using
@@ -30,7 +30,7 @@ class MailAgent(MailAgentTemplate):
       '''
       
       #enabling the recipient and subject textboxes
-      self.reecipient_textbox.enabled = True
+      self.recipient_textbox.enabled = True
       self.subject_textbox.enabled = True
 
       
@@ -43,11 +43,13 @@ class MailAgent(MailAgentTemplate):
       self.message_rich_text.enabled = True
       self.message_rich_text.read_only = False
   
-      
+      '''
       if isinstance(State.mail_to, list):
-        self.reecipient_textbox.text = ";".join(State.mail_to)
+        self.recipient_textbox.text = ";".join(State.mail_to)
       else:
-        self.reecipient_textbox.text = State.mail_to or "" # In case it's just a string or None
+        self.recipient_textbox.text = State.mail_to or "" # In case it's just a string or None
+      '''
+      self.recipient_textbox.text = State.mail_to or ""
       
       self.subject_textbox.text = State.mail_subject or ""
       
@@ -66,12 +68,17 @@ class MailAgent(MailAgentTemplate):
       with commas as well to be more user friendly. commented out for now, but 
       could be a good idea in the future because email adresses don't have comamas. 
       '''
-      #recipients_str = self.reecipient_textbox.text.replace(",", ";")
-      
+      #recipients_str = self.recipient_textbox.text.replace(",", ";")
+      '''
+      This is the code for creating a list of recipients, right now we suspect
+      that the send_email function is only working with strings so we are waiting to
+      impliment this part
       recipients = [
-        r.strip() for r in self.reecipient_textbox.text.split(";") if r.strip()
+        r.strip() for r in self.recipient_textbox.text.split(";") if r.strip()
       ]
-
+      '''
+      recipients = self.recipient_textbox.text
+      #recipients = self.reci
       #checking to make sure that recipients box is filled with at least one person
       if not recipients:
         alert("Please enter at least one recipient.")
@@ -82,7 +89,8 @@ class MailAgent(MailAgentTemplate):
       in order to test out if the email formatting gets fixed by this change'''
       #body = self.message_rich_text.content  # content returns the rich text's HTML/text
       body = self.text_area_tester.text
-      
+
+      print("recipients: " + recipients + "type: " + str(type(recipients)))
       # Call the server function (already defined in your Server Module)
       anvil.server.call('send_email', recipients, subject, body)
       
