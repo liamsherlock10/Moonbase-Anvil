@@ -76,12 +76,12 @@ class MailAgent(MailAgentTemplate):
       This is the code for creating a list of recipients, right now we suspect
       that the send_email function is only working with strings so we are waiting to
       impliment this part
+      '''
       recipients = [
         r.strip() for r in self.recipient_textbox.text.split(";") if r.strip()
       ]
-      '''
-      recipients = self.recipient_textbox.text
-      #recipients = self.reci
+      print(recipients)
+      #recipients = self.recipient_textbox.text
       #checking to make sure that recipients box is filled with at least one person
       if not recipients:
         alert("Please enter at least one recipient.")
@@ -100,9 +100,10 @@ class MailAgent(MailAgentTemplate):
       #body = self.message_textbox.text
       body = self.message_rich_text.content
 
-      print("recipients: " + recipients + "type: " + str(type(recipients)))
+      #print("recipients: " + recipients + "type: " + str(type(recipients)))
       # Call the server function (already defined in your Server Module)
-      anvil.server.call('send_email', recipients, subject, body)
+      for i in range(len(recipients)):
+        anvil.server.call('send_email', recipients[i], subject, body)
       
       # Update State variables
       State.mail_to = recipients
