@@ -28,8 +28,6 @@ class MailAgent(MailAgentTemplate):
       instructing the user to split up entries with semicolons, and then changing 
       any list that is coming from state to the same format
       '''
-
-      #self.welcome_label.
       
       #enabling the recipient and subject textboxes
       self.recipient_textbox.enabled = True
