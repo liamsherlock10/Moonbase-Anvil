@@ -4,11 +4,15 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
+from .. import MailAgent
+from .. import State
 
 class Chatbot(ChatbotTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    feedback = properties.get("feedback", "")
+    print(feedback)
     self.dd_length.items = [("1",1), ("2",2), ("5",5), ("10",10), ("30",30), ("50",50)]
     self.dd_length.selected_value = 30
     self.dd_user.items = [("Anonymous",0), ("Ibrahim",1), ("Nejma",2), ("Aly",3), ("Luca",4), ("Diego",5)]
@@ -318,6 +322,15 @@ class Chatbot(ChatbotTemplate):
                   self.draw_filelink_name(rep_parts[3], self.rt_reply, "Updated File")
                 elif "#Mail#" in reply:
                   self.rt_reply.content += self.remove_markdown(history + f"\n{rep_parts[4]}")
+                elif "#MailDraft#" in reply:
+                  draft_parts = rep_parts[3].split(";>;")
+                  State.recipients = draft_parts[0]
+                  State.subject = draft_parts[1]
+                  State.text = draft_parts[2]                 
+                  self.rt_reply.content += self.remove_markdown(history + f"\nDrafted e-mail for {draft_parts[0]}")
+                  fmain = get_open_form()
+                  fmain.column_panel_2.clear()
+                  fmain.column_panel_2.add_component(MailAgent.MailAgent(recipients=draft_parts[0], subject = draft_parts[1], text = draft_parts[2]), full_width_row=True)
                 else:
                   self.rt_reply.content += self.remove_markdown(history + f"\nSpecial task being generated ({reply})")
               else:

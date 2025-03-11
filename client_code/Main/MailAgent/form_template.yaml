@@ -68,4 +68,5 @@ components:
 container:
   properties: {col_widths: '{}', visible: true}
   type: ColumnPanel
+custom_component: true
 is_package: true
