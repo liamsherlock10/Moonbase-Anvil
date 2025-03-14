@@ -70,8 +70,10 @@ class MailAgent(MailAgentTemplate):
       body = self.message_rich_text.content
 
       # Call the server function (already defined in your Server Module)
-      for i in range(len(recipients)):
-        anvil.server.call('send_email', recipients[i], subject, body)
+      #for i in range(len(recipients)):
+       # anvil.server.call('send_email', recipients[i], subject, body)
+
+      anvil.server.call('send_email', recipients, subject, body)
       
       # Update State variables
       State.mail_to = recipients
