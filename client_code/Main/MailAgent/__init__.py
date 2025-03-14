@@ -4,16 +4,9 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-from .. import State 
+import Luna.State
 
-'''
-This code has a lot of AI generated comments, I have been working on it using
-AI and haven't decided to rewrite comments yet, so for the purpose of acccurate
-documentation, I have decided to maintain the AI generated stuff. 
 
-Note: we are using liam.ipynb for server functions, 
-at least that is what was being used in the last test
-'''
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
       # Set Form properties and Data Bindings.
@@ -22,22 +15,14 @@ class MailAgent(MailAgentTemplate):
       # (Adjust for how you store multiple recipients in State.mail_to)
       
       # If the State has recipients as a list, this is supposed to handle it
-      '''
-      I have concerns about this because I don't know if the user is going to
-      split up contacts with commas, spaces or anything else. Right now I am 
-      instructing the user to split up entries with semicolons, and then changing 
-      any list that is coming from state to the same format
-      '''
       
       #enabling the recipient and subject textboxes
       self.recipient_textbox.enabled = True
       self.subject_textbox.enabled = True
 
-      
       self.message_textbox.enabled = True
       self.message_textbox.text = State.mail_text or ""
-
-
+      
       #setting up the Richtext box
       self.message_rich_text.enable_editor = True
       self.message_rich_text.enabled = True
@@ -54,13 +39,8 @@ class MailAgent(MailAgentTemplate):
       self.subject_textbox.text = State.mail_subject or ""
 
       self.message_textbox.text = State.mail_text or ""
-      #self.message_rich_text.content = State.mail_text or ""
 
       
-
-
-
-
     def send_button_click(self, **event_args):
       """Called when the user clicks the 'Send' button"""
 
@@ -70,35 +50,25 @@ class MailAgent(MailAgentTemplate):
       could be a good idea in the future because email adresses don't have comamas. 
       '''
       #recipients_str = self.recipient_textbox.text.replace(",", ";")
-      '''
-      This is the code for creating a list of recipients, right now we suspect
-      that the send_email function is only working with strings so we are waiting to
-      impliment this part
-      '''
+
+      #Creating a list for recipients to put into server function. 
       recipients = [
         r.strip() for r in self.recipient_textbox.text.split(";") if r.strip()
       ]
       print(recipients)
-      #recipients = self.recipient_textbox.text
-      #checking to make sure that recipients box is filled with at least one person
+      
       if not recipients:
         alert("Please enter at least one recipient.")
         return
       
       subject = self.subject_textbox.text
-      '''This is what is supposed to be used in the end, using another component
-      in order to test out if the email formatting gets fixed by this change'''
 
       '''
-      Right here I am converting the textbox into the richText HTML because 
-      I was unable to get the richTextBox to be editable. I would like to fix this
-      long term but it still works right now, and I think that because it is 
-      switching to HTML, it will still have the stability bonus provided by RichText'''
+      Converting textbox into an invisible richtextbox for safe html content that
+      will not be altered. '''
       self.message_rich_text.content = self.message_textbox.text
-      #body = self.message_textbox.text
       body = self.message_rich_text.content
 
-      #print("recipients: " + recipients + "type: " + str(type(recipients)))
       # Call the server function (already defined in your Server Module)
       for i in range(len(recipients)):
         anvil.server.call('send_email', recipients[i], subject, body)
