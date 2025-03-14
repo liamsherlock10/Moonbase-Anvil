@@ -4,8 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-from .. import State
-
+from ..State import State
 
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
@@ -35,9 +34,7 @@ class MailAgent(MailAgentTemplate):
         self.recipient_textbox.text = State.mail_to or "" # In case it's just a string or None
       '''
       self.recipient_textbox.text = State.mail_to or ""
-      
       self.subject_textbox.text = State.mail_subject or ""
-
       self.message_textbox.text = State.mail_text or ""
 
       
@@ -71,9 +68,9 @@ class MailAgent(MailAgentTemplate):
 
       # Call the server function (already defined in your Server Module)
       #for i in range(len(recipients)):
-       # anvil.server.call('send_email', recipients[i], subject, body)
+        #anvil.server.call('send_email', recipients[i], subject, body)
 
-      anvil.server.call('send_email', recipients, subject, body)
+      #anvil.server.call('send_email', recipients, subject, body)
       
       # Update State variables
       State.mail_to = recipients
@@ -87,58 +84,3 @@ class MailAgent(MailAgentTemplate):
       """This method is called when the button is clicked"""
       open_form("Main") #Should this go to a different page instead?
     
-
-
-
-
-'''
-  #Radio button for using 4o
-    def radio_4o_change(self, **event_args):
-      if self.radio_4o.selected:
-          #anvil.server.call("use_model", "4o")
-          print("use model 4o")
-
-  #radio button for using o1
-    def radio_o1_change(self, **event_args):
-      if self.radio_o1.selected:
-          print("use model o1")
-          #anvil.server.call("use_model", "o1")
-
-    def generate_button_click(self, **event_args):
-      """
-      Called when the "Generate" button is clicked.
-      This might call a server function to generate an email draft
-      based on the selected model and user-entered data.
-      """
-      # Figure out which model is selected
-      if self.radio_gpt_4o.selected:
-          model_choice = "GPT_4o"
-      elif self.radio_gpt_o1.selected:
-          model_choice = "GPT_o1"
-      else:
-          model_choice = None
-      
-      # Grab the user's subject and message from the text boxes
-      recipient = self.recipient_textbox.text or ""
-      subject = self.subject_textbox.text or ""
-      body = self.message_rich_text.content or ""
-      
-      # For now, let's just demonstrate the placeholders
-      if model_choice is None:
-          anvil.alert("Please select a model first.")
-          return
-      
-      if not subject and not body:
-          anvil.alert("Provide at least a subject or body to help generate content!")
-          return
-
-      # --- Placeholder for your real server function ---
-      # Suppose you have a server function called 'generate_email_draft'
-      # In the future, you'd do:  draft = anvil.server.call("generate_email_draft", model_choice, subject, body)
-      # For now, we'll do a placeholder:
-      draft = self._placeholder_generate_email(model_choice, subject, body)
-      
-      # Optionally, populate the text_box_1 with the generated draft
-      self.text_box_1.text = draft
-'''
-
