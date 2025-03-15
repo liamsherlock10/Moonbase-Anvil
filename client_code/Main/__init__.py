@@ -12,6 +12,7 @@ from .M_A import M_A
 from .WebScraper import WebScraper
 from .Searchers import Searchers
 from .Hubspot import Hubspot
+from .. import State
 
 class Main(MainTemplate):
   def __init__(self, **properties):

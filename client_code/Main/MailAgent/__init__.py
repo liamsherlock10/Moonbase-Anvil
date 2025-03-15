@@ -4,7 +4,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-from ..State import State
+from .. import State
 
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
@@ -70,7 +70,7 @@ class MailAgent(MailAgentTemplate):
       #for i in range(len(recipients)):
         #anvil.server.call('send_email', recipients[i], subject, body)
 
-      #anvil.server.call('send_email', recipients, subject, body)
+      anvil.server.call('send_email', recipients, subject, body)
       
       # Update State variables
       State.mail_to = recipients
