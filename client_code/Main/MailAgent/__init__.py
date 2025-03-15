@@ -82,5 +82,6 @@ class MailAgent(MailAgentTemplate):
 
     def cancel_button_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form("Main") #Should this go to a different page instead?
+      #open_form("Main") #Should this go to a different page instead?
+      print("cancelled, temporary")
     
