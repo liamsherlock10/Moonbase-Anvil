@@ -6,8 +6,11 @@ import anvil.server
 import re
 import State
 
+
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
+      import State
+      self.State = State
       # Set Form properties and Data Bindings.
       self.init_components(**properties)
       # On form load, populate the fields from State
