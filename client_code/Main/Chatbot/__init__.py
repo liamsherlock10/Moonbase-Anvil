@@ -8,7 +8,6 @@ from .. import MailAgent
 import State
 
 
-
 class Chatbot(ChatbotTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
