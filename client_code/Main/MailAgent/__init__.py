@@ -67,10 +67,10 @@ class MailAgent(MailAgentTemplate):
       body = self.message_rich_text.content
 
       # Call the server function (already defined in your Server Module)
-      #for i in range(len(recipients)):
-        #anvil.server.call('send_email', recipients[i], subject, body)
+      for i in range(len(recipients)):
+        anvil.server.call('send_email', recipients[i], subject, body)
 
-      anvil.server.call('send_email', recipients, subject, body)
+      #anvil.server.call('send_email', recipients, subject, body)
       
       # Update State variables
       State.mail_to = recipients
@@ -82,6 +82,5 @@ class MailAgent(MailAgentTemplate):
 
     def cancel_button_click(self, **event_args):
       """This method is called when the button is clicked"""
-      #open_form("Main") #Should this go to a different page instead?
-      print("cancelled, temporary")
+      open_form("Main") #Should this go to a different page instead?
     
