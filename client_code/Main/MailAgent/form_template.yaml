@@ -50,17 +50,25 @@ components:
   properties: {height: 32}
   type: Spacer
 - event_bindings: {click: send_button_click}
-  layout_properties: {grid_position: 'ULEJWO,FTFZZY'}
+  layout_properties: {full_width_row: false, grid_position: 'TYHSJS,PUSICR'}
   name: send_button
   properties:
+    align: full
+    bold: true
+    font: '30'
+    icon: fa:arrow-circle-right
+    icon_align: right
+    italic: false
     spacing:
-      padding: [null, 42, null, 35]
+      padding: [null, 42, 7, 32]
     text: Send
+    underline: true
   type: Button
 - event_bindings: {click: cancel_button_click}
-  layout_properties: {grid_position: 'LKRMTT,JAYOWW'}
+  layout_properties: {grid_position: 'GZGMTE,PNJJUD'}
   name: cancel_button
   properties:
+    align: center
     spacing:
       padding: [null, 32, null, 26]
     text: Cancel
