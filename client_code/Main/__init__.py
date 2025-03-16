@@ -13,6 +13,7 @@ from .WebScraper import WebScraper
 from .Searchers import Searchers
 from .Hubspot import Hubspot
 from .MailAgent import MailAgent
+from .OutboundMail import OutboundMail
 from .. import State
 
 class Main(MainTemplate):
@@ -149,5 +150,25 @@ class Main(MainTemplate):
     self.b_scraper.enabled = True
     self.b_searchers.enabled = True
     self.b_hubspot.enabled = False
+
+  def OutboundMail_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    '''
+    I need to add the self.b_outboundmail component and do the same thing for 
+    mail agent in order to allow for them to be added. 
+    
+    Note: not rly sure where this part happened. 
+    '''
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Searchers(), full_width_row=True)
+    self.b_monitor.enabled = True
+    self.b_chatbot.enabled = True
+    self.b_newsletter.enabled = True
+    self.b_investors.enabled = True
+    self.b_pa.enabled = True
+    self.b_ma.enabled = True
+    self.b_scraper.enabled = True
+    self.b_searchers.enabled = False
+    self.b_hubspot.enabled = True
 
 

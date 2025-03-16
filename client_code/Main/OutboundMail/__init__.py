@@ -9,5 +9,6 @@ class OutboundMail(OutboundMailTemplate):
   def __init__(self, **properties):
     self.outBound = State.sent_folder
 
-  def temp_func(self, **properties):
+  def Temp_func_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
     print(self.outBound)

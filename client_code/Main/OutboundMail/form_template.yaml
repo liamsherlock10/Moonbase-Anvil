@@ -1,5 +1,6 @@
 components:
-- layout_properties: {grid_position: 'EJWLWS,VXKCTC'}
+- event_bindings: {click: Temp_func_button_click}
+  layout_properties: {grid_position: 'EJWLWS,VXKCTC'}
   name: Temp_func_button
   properties: {text: button_1}
   type: Button
