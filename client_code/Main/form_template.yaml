@@ -44,9 +44,10 @@ components:
     name: b_scraper
     properties: {role: tonal-button, text: Web Scraper}
     type: Button
-  - layout_properties: {grid_position: 'WAPAAH,SCDOYD'}
+  - event_bindings: {click: MailAgentButton_click}
+    layout_properties: {grid_position: 'WAPAAH,SCDOYD'}
     name: MailAgentButton
-    properties: {text: button_1}
+    properties: {text: MailAgent}
     type: Button
   - event_bindings: {click: OutboundMail_click}
     layout_properties: {grid_position: 'TUISSZ,FSMAXM'}

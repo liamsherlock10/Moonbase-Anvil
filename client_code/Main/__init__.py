@@ -160,7 +160,7 @@ class Main(MainTemplate):
     Note: not rly sure where this part happened. 
     '''
     self.column_panel_2.clear()
-    self.column_panel_2.add_component(Searchers(), full_width_row=True)
+    self.column_panel_2.add_component(OutboundMail(), full_width_row=True)
     self.b_monitor.enabled = True
     self.b_chatbot.enabled = True
     self.b_newsletter.enabled = True
@@ -171,4 +171,22 @@ class Main(MainTemplate):
     self.b_searchers.enabled = False
     self.b_hubspot.enabled = True
 
+  def MailAgentButton_click(self, **event_args):
+    """This method is called when the button is clicked"""
 
+    '''
+    Same issue as the Outbound button. need to figure out where the other
+    component names came from and how to encorporate them into here
+    and add this component as part of the other buttons functions. 
+    ''' 
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(MailAgent(), full_width_row=True)
+    self.b_monitor.enabled = True
+    self.b_chatbot.enabled = True
+    self.b_newsletter.enabled = True
+    self.b_investors.enabled = True
+    self.b_pa.enabled = True
+    self.b_ma.enabled = True
+    self.b_scraper.enabled = True
+    self.b_searchers.enabled = True
+    self.b_hubspot.enabled = False
