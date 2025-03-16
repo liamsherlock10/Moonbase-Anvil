@@ -4,13 +4,11 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.server
 import re
-import State
+from ... import State
 
 
 class MailAgent(MailAgentTemplate):
     def __init__(self, **properties):
-      import State
-      self.State = State
       # Set Form properties and Data Bindings.
       self.init_components(**properties)
       # On form load, populate the fields from State

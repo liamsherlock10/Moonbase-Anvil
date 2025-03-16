@@ -13,7 +13,7 @@ from .WebScraper import WebScraper
 from .Searchers import Searchers
 from .Hubspot import Hubspot
 from .MailAgent import MailAgent
-import State
+from .. import State
 
 class Main(MainTemplate):
   def __init__(self, **properties):
