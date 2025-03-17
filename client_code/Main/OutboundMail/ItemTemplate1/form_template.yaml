@@ -1,5 +1,3 @@
 components: []
-container:
-  properties: {visible: true}
-  type: ColumnPanel
+container: {type: ColumnPanel}
 is_package: true
