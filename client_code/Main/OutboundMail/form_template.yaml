@@ -1,6 +1,6 @@
 components:
 - layout_properties: {grid_position: 'VMASHV,IGCUTR'}
-  name: repeating_panel_1
+  name: emailPanel
   properties: {item_template: Main.OutboundMail.ItemTemplate1}
   type: RepeatingPanel
 container:
