@@ -1,5 +1,20 @@
 allow_embedding: false
 correct_dependency_ids: {}
+db_schema:
+  sentemails:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: recipients
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: subject
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: message
+      type: string
+    server: full
+    title: Table 1
 dependencies: []
 metadata: {logo_img: 'asset:Luna Logo Oct-24-logo.jpeg', title: Moonbase Capital Luna}
 name: Clone of Luna

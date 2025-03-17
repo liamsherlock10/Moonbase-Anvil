@@ -1,3 +1,6 @@
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 import anvil.google.auth, anvil.google.drive, anvil.google.mail
 from anvil.google.drive import app_files
 import anvil.server
@@ -22,7 +25,7 @@ outbound_emails = {}
 @anvil.server.callable
 def add_email(recipients, subject, message):
     """Insert a new email into the Emails Data Table."""
-    app_tables.emails.add_row(
+    app_tables.sentemails.add_row(
         recipients=recipients,
         subject=subject,
         message=message
@@ -33,4 +36,4 @@ def add_email(recipients, subject, message):
 def get_emails():
     """Retrieve all emails from the Emails Data Table."""
     # This returns an iterable of rows, which can be converted into dictionaries in the client if needed.
-    return app_tables.emails.search()
+    return app_tables.sentemails.search()
