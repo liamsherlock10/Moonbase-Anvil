@@ -15,6 +15,13 @@ class OutboundMail(OutboundMailTemplate):
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     current_sent = anvil.server.call('get_emails')
-    print(current_sent)
+
+    recipients_list = [row["recipients"] for row in current_sent]
+    subjects_list = [row["subject"] for row in current_sent]
+    messages_list = [row["message"] for row in current_sent]
+
+    print("Recipients:", recipients_list)
+    print("Subjects:", subjects_list)
+    print("Messages:", messages_list)
 
   

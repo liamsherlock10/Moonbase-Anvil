@@ -25,6 +25,9 @@ outbound_emails = {}
 @anvil.server.callable
 def add_email(recipients, subject, message):
     """Insert a new email into the Emails Data Table."""
+    if isinstance(recipients, list):
+        recipients = ",".join(recipients)
+
     app_tables.sentemails.add_row(
         recipients=recipients,
         subject=subject,
@@ -37,3 +40,13 @@ def get_emails():
     """Retrieve all emails from the Emails Data Table."""
     # This returns an iterable of rows, which can be converted into dictionaries in the client if needed.
     return app_tables.sentemails.search()
+'''
+This is a suggested change to the get_emails function. 
+  @anvil.server.callable
+def get_emails():
+    """Retrieve all emails from the Emails Data Table as a list of dictionaries."""
+    return [
+        {"recipients": row["recipients"], "subject": row["subject"], "message": row["message"]}
+        for row in app_tables.sentemails.search()
+    ]
+    '''
