@@ -77,7 +77,9 @@ class MailAgent(MailAgentTemplate):
       State.mail_to = recipients
       State.mail_subject = subject
       State.mail_text = body
-      State.sent_folder.append([recipients, subject, body])
+      #saving this as tuple for rn becasue data shouldn't change
+      
+      State.sent_folder.append((recipients, subject, body))
       
       # Show the Main form (assuming you have a form named "Main" in your app)
       open_form("Main")
