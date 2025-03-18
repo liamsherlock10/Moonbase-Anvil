@@ -7,6 +7,8 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
+from .email_row import EmailRow
+
 
 class EmailPanel(EmailPanelTemplate):
   def __init__(self, **properties):
@@ -18,6 +20,10 @@ class EmailPanel(EmailPanelTemplate):
   def load(self):
     #getting rows from app table 
     rows = app_tables.sentemails.search()
-    email_data = [{"recipient": row["recipient"], "subject": row["subject"], "message": row["message"]} for row in rows]
+    email_data = [{"recipient": row["recipient"], 
+                   "subject": row["subject"], 
+                   "message": row["message"]} 
+                   for row in rows]
     #set items for the repeating panel, this component is the repeating panel
+    #i don't understand if this component is actually supposed to be the repeating panel or not
     self.EmailPanel.items = email_data

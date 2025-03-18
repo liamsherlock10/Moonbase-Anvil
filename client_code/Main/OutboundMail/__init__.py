@@ -13,6 +13,8 @@ class OutboundMail(OutboundMailTemplate):
     self.outBound = State.sent_folder
     self.emailPanel.visible = True
 
+    self.load()
+
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     current_sent = anvil.server.call('get_emails')
@@ -25,10 +27,15 @@ class OutboundMail(OutboundMailTemplate):
     print("Subjects:", subjects_list)
     print("Messages:", messages_list)
 
+  
   def load(self):
-    rows = app_tables.emails.search()
-    email_data = [{"recipient": row["recipient"],"subject": row['subject'], "message": row["message"]} for row in rows]
-    self.EmailPanel.items = email_data
+    rows = app_tables.sentemails.search()
+    email_data = [{"recipient": row["recipient"],
+                   "subject": row['subject'], "message": 
+                   row["message"]} 
+                  for row in rows]
+    self.emailPanel.items = email_data
+    
 
   '''
   Add this button feature after, easy enough and will make it more 
