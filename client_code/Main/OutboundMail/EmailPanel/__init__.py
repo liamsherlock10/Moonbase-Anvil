@@ -12,4 +12,12 @@ class EmailPanel(EmailPanelTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.load()
+    #email row has to be defined with other thing still
+    self.EmailPanel.item_template = EmailRow
+
+  def load(self):
+    #getting rows from app table 
+    rows = app_tables.sentemails.search()
+    email_data = [{"recipient": row["recipient"], "subject": row["subject"], "message": row["message"]} for row in rows]
+    #set items for the repeating panel, this component is the repeating panel
+    self.EmailPanel.items = email_data
