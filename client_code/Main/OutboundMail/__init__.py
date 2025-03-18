@@ -13,7 +13,7 @@ class OutboundMail(OutboundMailTemplate):
     self.outBound = State.sent_folder
     self.emailPanel.visible = True
 
-    self.load()
+    #self.load()
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
