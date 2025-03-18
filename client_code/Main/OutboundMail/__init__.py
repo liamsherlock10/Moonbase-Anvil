@@ -11,6 +11,7 @@ from ... import State
 class OutboundMail(OutboundMailTemplate):
   def __init__(self, **properties):
     self.outBound = State.sent_folder
+    self.emailPanel.visible = True
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -23,5 +24,19 @@ class OutboundMail(OutboundMailTemplate):
     print("Recipients:", recipients_list)
     print("Subjects:", subjects_list)
     print("Messages:", messages_list)
+
+  def load(self):
+    rows = app_tables.emails.search()
+    email_data = [{"recipient": row["recipient"],"subject": row['subject'], "message": row["message"]} for row in rows]
+    self.EmailPanel.items = email_data
+
+  '''
+  Add this button feature after, easy enough and will make it more 
+  professional and funcional. 
+
+  def button_refresh_click(self, **event_args):
+        """Refresh button to reload emails"""
+        self.emailPanel.load_emails()
+  '''
 
   

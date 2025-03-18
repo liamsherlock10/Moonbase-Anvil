@@ -25,9 +25,11 @@ outbound_emails = {}
 @anvil.server.callable
 def add_email(recipients, subject, message):
     """Insert a new email into the Emails Data Table."""
+    '''
     if isinstance(recipients, list):
         recipients = ",".join(recipients)
-
+    '''
+  
     app_tables.sentemails.add_row(
         recipients=recipients,
         subject=subject,
