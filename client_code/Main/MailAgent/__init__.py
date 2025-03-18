@@ -83,7 +83,7 @@ class MailAgent(MailAgentTemplate):
       #saving this as tuple for rn becasue data shouldn't change
       
       #State.sent_folder.update({"recipients": recipients, "subject":subject, "message":body})
-      anvil.server.call("add_email", recipients, subject, body)
+      anvil.server.call("add_email", [recipients], subject, body)
       # Show the Main form (assuming you have a form named "Main" in your app)
       open_form("Main")
 
