@@ -17,6 +17,7 @@ class EmailPanel(EmailPanelTemplate):
     #email row has to be defined with other thing still
     self.item_template = EmailRow
 
+  '''
   def load(self):
     #getting rows from app table 
     rows = app_tables.sentemails.search()
@@ -27,3 +28,4 @@ class EmailPanel(EmailPanelTemplate):
     #set items for the repeating panel, this component is the repeating panel
     #i don't understand if this component is actually supposed to be the repeating panel or not
     self.EmailPanel.items = email_data
+  '''

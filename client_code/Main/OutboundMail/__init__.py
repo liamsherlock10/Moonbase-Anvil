@@ -12,7 +12,6 @@ class OutboundMail(OutboundMailTemplate):
   def __init__(self, **properties):
     self.outBound = State.sent_folder
     self.EmailPanel.visible = True
-
     self.load()
 
   def button_1_click(self, **event_args):
@@ -42,4 +41,3 @@ class OutboundMail(OutboundMailTemplate):
         self.EmailPanel.load_emails()
   '''
 
-  
