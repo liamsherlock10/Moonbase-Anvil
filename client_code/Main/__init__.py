@@ -17,6 +17,7 @@ from .Searchers import Searchers
 from .Hubspot import Hubspot
 from .MailAgent import MailAgent
 from .OutboundMail import OutboundMail
+from .Analysis import Analysis
 from .. import State
 
 class Main(MainTemplate):
@@ -193,3 +194,23 @@ class Main(MainTemplate):
     self.b_scraper.enabled = True
     self.b_searchers.enabled = True
     self.b_hubspot.enabled = False
+
+  '''
+  def Analysis_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    
+    #note: should still probably figure out what to do about the stuff at the bottom,
+    #adding true/false and actually enabling the new components we have created. 
+    
+    self.column_panel_2.clear()
+    self.column_panel_2.add_component(Analysis(), full_width_row=True)
+    self.b_monitor.enabled = True
+    self.b_chatbot.enabled = True
+    self.b_newsletter.enabled = True
+    self.b_investors.enabled = True
+    self.b_pa.enabled = True
+    self.b_ma.enabled = True
+    self.b_scraper.enabled = True
+    self.b_searchers.enabled = False
+    self.b_hubspot.enabled = True
+  '''

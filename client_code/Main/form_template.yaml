@@ -49,6 +49,11 @@ components:
     name: MailAgentButton
     properties: {text: MailAgent}
     type: Button
+  - event_bindings: {click: Analysis_click}
+    layout_properties: {grid_position: 'HEKPHC,SCSDCA'}
+    name: Analysis
+    properties: {text: button_1}
+    type: Button
   - event_bindings: {click: OutboundMail_click}
     layout_properties: {grid_position: 'TUISSZ,FSMAXM'}
     name: OutboundMail
