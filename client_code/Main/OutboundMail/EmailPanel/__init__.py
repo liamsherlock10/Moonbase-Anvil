@@ -7,7 +7,7 @@ import anvil.server
 import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 
-from .email_row import EmailRow
+from ..EmailRow import EmailRow
 
 
 class EmailPanel(EmailPanelTemplate):
@@ -15,7 +15,7 @@ class EmailPanel(EmailPanelTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     #email row has to be defined with other thing still
-    self.EmailPanel.item_template = EmailRow
+    self.item_template = EmailRow
 
   def load(self):
     #getting rows from app table 

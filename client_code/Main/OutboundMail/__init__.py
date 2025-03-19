@@ -11,9 +11,9 @@ from ... import State
 class OutboundMail(OutboundMailTemplate):
   def __init__(self, **properties):
     self.outBound = State.sent_folder
-    self.emailPanel.visible = True
+    self.EmailPanel.visible = True
 
-    #self.load()
+    self.load()
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -29,12 +29,8 @@ class OutboundMail(OutboundMailTemplate):
 
   
   def load(self):
-    rows = app_tables.sentemails.search()
-    email_data = [{"recipient": row["recipient"],
-                   "subject": row['subject'], "message": 
-                   row["message"]} 
-                  for row in rows]
-    self.emailPanel.items = email_data
+    email_data = anvil.server.call('get_sent_emails')
+    self.EmailPanel.items = email_data
     
 
   '''
@@ -43,7 +39,7 @@ class OutboundMail(OutboundMailTemplate):
 
   def button_refresh_click(self, **event_args):
         """Refresh button to reload emails"""
-        self.emailPanel.load_emails()
+        self.EmailPanel.load_emails()
   '''
 
   

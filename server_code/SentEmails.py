@@ -42,6 +42,15 @@ def get_emails():
     """Retrieve all emails from the Emails Data Table."""
     # This returns an iterable of rows, which can be converted into dictionaries in the client if needed.
     return app_tables.sentemails.search()
+
+@anvil.server.callable
+def get_sent_emails():
+  rows = app_tables.sentemails.search()
+  return [{"recipients": row["recipients"],
+                   "subject": row['subject'], "message": 
+                   row["message"]} 
+                  for row in rows]
+
 '''
 This is a suggested change to the get_emails function. 
   @anvil.server.callable
