@@ -16,7 +16,11 @@ class EmailPanel(EmailPanelTemplate):
     self.init_components(**properties)
     #email row has to be defined with other thing still
     self.item_template = EmailRow
+    
 
+
+
+  
   '''
   def load(self):
     #getting rows from app table 
