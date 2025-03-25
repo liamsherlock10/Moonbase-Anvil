@@ -1,7 +1,9 @@
 components:
-- layout_properties: {grid_position: 'FWBUMM,CMMTQM'}
+- data_bindings:
+  - {code: 'self.item['''']', property: items, writeback: false}
+  layout_properties: {grid_position: 'FWBUMM,CMMTQM'}
   name: EmailPanel
-  properties: {item_template: Main.OutboundMail.EmailPanel}
+  properties: {item_template: Main.OutboundMail.EmailRow}
   type: RepeatingPanel
 - event_bindings: {click: button_1_click}
   layout_properties: {grid_position: 'LUMLUN,HGMNIK'}
@@ -13,3 +15,4 @@ container:
   type: ColumnPanel
 custom_component: true
 is_package: true
+properties: []
