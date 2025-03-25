@@ -195,7 +195,7 @@ class Main(MainTemplate):
     self.b_searchers.enabled = True
     self.b_hubspot.enabled = False
 
-  '''
+
   def Analysis_click(self, **event_args):
     """This method is called when the button is clicked"""
     
@@ -213,4 +213,3 @@ class Main(MainTemplate):
     self.b_scraper.enabled = True
     self.b_searchers.enabled = False
     self.b_hubspot.enabled = True
-  '''

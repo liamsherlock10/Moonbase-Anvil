@@ -3,5 +3,13 @@ components:
   name: analysis_label
   properties: {text: This is the inbound email analyzer}
   type: Label
+- layout_properties: {grid_position: 'BRKSCF,MRTJMZ'}
+  name: input_text
+  properties: {}
+  type: TextArea
+- layout_properties: {grid_position: 'KUELFM,NEONPF'}
+  name: Analyse_button
+  properties: {text: Analyse}
+  type: Button
 container: {type: ColumnPanel}
 is_package: true

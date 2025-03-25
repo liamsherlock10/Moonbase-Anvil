@@ -7,12 +7,16 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-
 class EmailRow(EmailRowTemplate):
-    def __init__(self, **properties):
-        self.init_components(**properties)
+  def __init__(self, **properties):
+    # Set up the form components
+    self.init_components(**properties)
+    
+    # Assuming self.item is a dictionary with keys "recipients", "subject", and "message"
+    self.recipients_label.text = self.item.get("recipients", "No Recipients")
+    self.subject_label.text = self.item.get("subject", "No Subject")
+    self.message_label.text = self.item.get("message", "No Message")
 
-        # Set the labels based on passed properties
-        self.label_recipient.text = properties.get("recipient", "Unknown")
-        self.label_subject.text = properties.get("subject", "No Subject")
-        self.label_message.text = properties.get("message", "No Message")
+    #Spacer design
+    self.item_spacer.background = "#555"
+    self.item_spacer.visible = True
