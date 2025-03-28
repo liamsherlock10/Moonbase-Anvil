@@ -17,17 +17,19 @@ class Analysis(AnalysisTemplate):
     self.init_components(**properties)
     # Define the prompt you want to ask
     user_prompt = "What is the capital of France?"
-
+    emails = anvil.server.call('check_email', platest=True, pmailbox=True, phubspot=True)
+    print(emails)
+    '''
     # Make the API call to the ChatCompletion endpoint
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo",
       messages=[{"role": "user", "content": user_prompt}]
     )
-
+    
     # Extract and print the response
     answer = response.choices[0].message['content']
     print("ChatGPT says:", answer)
-
+    '''
     # Any code you write here will run before the form opens.
 
     '''
