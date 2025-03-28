@@ -71,5 +71,5 @@ class Analysis(AnalysisTemplate):
     suggested response already loaded into it, so that the user can look at it, choose 
     to edit it, and then send a message. 
     '''
-  
-  
+
+    
