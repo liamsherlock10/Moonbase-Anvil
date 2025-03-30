@@ -17,8 +17,8 @@ class Analysis(AnalysisTemplate):
     self.init_components(**properties)
     # Define the prompt you want to ask
     user_prompt = "What is the capital of France?"
-    emails = anvil.server.call('check_email', platest=True, pmailbox=True, phubspot=True)
-    print(emails)
+    #emails = anvil.server.call('check_email', platest=True, pmailbox=True, phubspot=True)
+    #print(emails)
     '''
     # Make the API call to the ChatCompletion endpoint
     response = openai.ChatCompletion.create(
@@ -73,5 +73,14 @@ class Analysis(AnalysisTemplate):
     suggested response already loaded into it, so that the user can look at it, choose 
     to edit it, and then send a message. 
     '''
+
+  def Cancel_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form("Main")
+
+  def Analyse_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
+    
 
     
