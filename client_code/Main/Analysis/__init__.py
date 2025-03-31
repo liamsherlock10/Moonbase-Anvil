@@ -17,7 +17,7 @@ class Analysis(AnalysisTemplate):
     self.init_components(**properties)
     # Define the prompt you want to ask
     user_prompt = "What is the capital of France?"
-    #emails = anvil.server.call('check_email', platest=True, pmailbox=True, phubspot=True)
+    anvil.server.call('mail_ingestion', user_prompt)
     #print(emails)
     '''
     # Make the API call to the ChatCompletion endpoint
