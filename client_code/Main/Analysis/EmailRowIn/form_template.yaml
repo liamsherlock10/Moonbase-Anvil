@@ -1,0 +1,19 @@
+components:
+- layout_properties: {grid_position: 'LITIRN,APUTHJ'}
+  name: from_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'DRBWMB,QJXOET'}
+  name: subject_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'MNAQRI,DAWQTN'}
+  name: message_label
+  properties: {}
+  type: Label
+- layout_properties: {grid_position: 'DIITOA,FHFDWF'}
+  name: Reply_button
+  properties: {text: reply}
+  type: Button
+container: {type: ColumnPanel}
+is_package: true

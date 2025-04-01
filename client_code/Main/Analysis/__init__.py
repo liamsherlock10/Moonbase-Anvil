@@ -25,9 +25,15 @@ class Analysis(AnalysisTemplate):
       if analysis[0] == "1":
         response_required.append([emails[i], analysis])
       else:
-        no_response.append(emails[i])
+        no_response.append(emails[i], "no response required")
 
-        
+    new_emails = response_required + no_response
+
+    self.AnalysisPanel.items = new_emails
+
+    print(new_emails)
+
+    
     
     
     '''
