@@ -16,10 +16,15 @@ class Analysis(AnalysisTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Define the prompt you want to ask
+    emails = anvil.server.call('check_email', platest=True, pmailbox=False, phubspot=True)
+    for i in range(len(emails)):
+      category = anvil.server.call('mail_ingestion', emails[i].get("text"))
+      print(category)
+    
     user_prompt = "What is the capital of France?"
     answer = anvil.server.call('mail_ingestion', user_prompt)
     print(answer)
-    #print(emails)
+    
     '''
     # Make the API call to the ChatCompletion endpoint
     response = openai.ChatCompletion.create(
