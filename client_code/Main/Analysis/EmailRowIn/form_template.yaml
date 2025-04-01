@@ -11,7 +11,8 @@ components:
   name: message_label
   properties: {}
   type: Label
-- layout_properties: {grid_position: 'DIITOA,FHFDWF'}
+- event_bindings: {click: Reply_button_click}
+  layout_properties: {grid_position: 'DIITOA,FHFDWF'}
   name: Reply_button
   properties: {text: reply}
   type: Button

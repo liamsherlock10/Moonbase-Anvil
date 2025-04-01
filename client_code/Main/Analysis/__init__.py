@@ -6,10 +6,6 @@ from anvil.google.drive import app_files
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-#import openai
-
-
-
 
 class Analysis(AnalysisTemplate):
   def __init__(self, **properties):
@@ -25,16 +21,13 @@ class Analysis(AnalysisTemplate):
       if analysis[0] == "1":
         response_required.append([emails[i], analysis])
       else:
-        no_response.append(emails[i], "no response required")
+        print("this didn't need a response, " + i)
+        no_response.append([emails[i], "no response required"])
 
     new_emails = response_required + no_response
 
     self.AnalysisPanel.items = new_emails
 
-    print(new_emails)
-
-    
-    
     
     '''
     # Make the API call to the ChatCompletion endpoint
