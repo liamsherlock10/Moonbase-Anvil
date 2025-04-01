@@ -33,6 +33,6 @@ services:
     app_files: []
   server_config: {}
   source: /runtime/services/google.yml
-startup: {module: Main.MailAgent, type: form}
+startup: {module: Main, type: form}
 startup_form: null
 uplink_visible: true

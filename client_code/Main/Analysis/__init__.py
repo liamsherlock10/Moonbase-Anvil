@@ -17,13 +17,18 @@ class Analysis(AnalysisTemplate):
     self.init_components(**properties)
     # Define the prompt you want to ask
     emails = anvil.server.call('check_email', platest=True, pmailbox=False, phubspot=True)
+
+    response_required = []
+    no_response = []
     for i in range(len(emails)):
-      category = anvil.server.call('mail_ingestion', emails[i].get("text"))
-      print(category)
+      analysis = anvil.server.call('mail_ingestion', emails[i].get("text"))
+      if analysis[0] == "1":
+        response_required.append([emails[i], analysis])
+      else:
+        no_response.append(emails[i])
+
+        
     
-    user_prompt = "What is the capital of France?"
-    answer = anvil.server.call('mail_ingestion', user_prompt)
-    print(answer)
     
     '''
     # Make the API call to the ChatCompletion endpoint
