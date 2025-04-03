@@ -7,6 +7,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
+
+'''
+To do this week (today is april 3):
+ -make everything more astetically pleasing, esspecially the repeating panel
+ -create a summary, figure out system for that, for recieving emails
+ 
+'''
 class Analysis(AnalysisTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
