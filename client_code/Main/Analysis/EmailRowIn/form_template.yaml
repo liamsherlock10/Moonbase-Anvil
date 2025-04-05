@@ -16,5 +16,7 @@ components:
   name: Reply_button
   properties: {text: reply}
   type: Button
-container: {type: ColumnPanel}
+container:
+  properties: {visible: true}
+  type: ColumnPanel
 is_package: true
