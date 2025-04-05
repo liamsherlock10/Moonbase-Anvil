@@ -3,10 +3,10 @@ components:
   name: analysis_label
   properties: {text: This is the inbound email analyzer}
   type: Label
-- event_bindings: {change: Summary_textbox_change}
+- event_bindings: {}
   layout_properties: {grid_position: 'BRKSCF,MRTJMZ'}
   name: Summary_textbox
-  properties: {}
+  properties: {enabled: false}
   type: TextArea
 - layout_properties: {grid_position: 'MAOENI,OOSMAZ'}
   name: AnalysisPanel

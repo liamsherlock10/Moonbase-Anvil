@@ -22,7 +22,7 @@ class EmailRowIn(EmailRowInTemplate):
     self.message_label.text = email.get("text", "")
 
     self.column_panel_1.role = "email-row"
-    
+    self.column_panel_1.set_css_property("border", "10px solid #000000")
     # Optionally, you could display analysis information too:
     #self.analysis_label.text = str(self.item[1])
 
