@@ -21,6 +21,7 @@ class Analysis(AnalysisTemplate):
     # Define the prompt you want to ask
     emails = anvil.server.call('check_email', platest=True, pmailbox=False, phubspot=True)
 
+    self.Summary_textbox.text = anvil.server.call("mail_summary", emails)
     response_required = []
     no_response = []
     for i in range(len(emails)):
@@ -98,6 +99,7 @@ class Analysis(AnalysisTemplate):
   def Analyse_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     pass
+
     
 
     
