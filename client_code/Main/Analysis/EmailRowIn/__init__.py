@@ -20,6 +20,8 @@ class EmailRowIn(EmailRowInTemplate):
     self.from_label.text = email.get("from", "Unknown")
     self.subject_label.text = email.get("subject", "No Subject")
     self.message_label.text = email.get("text", "")
+
+    self.column_panel_1.role = "email-row"
     
     # Optionally, you could display analysis information too:
     #self.analysis_label.text = str(self.item[1])

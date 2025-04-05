@@ -1046,3 +1046,12 @@ div.plot-container.plotly svg.main-svg {
 .anvil-spinner {
     --anvil-spinner-bg: %color:Surface Variant%;
 }
+
+.email-item {
+    border: 1px solid #000;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #55f9f9;
+}
+
