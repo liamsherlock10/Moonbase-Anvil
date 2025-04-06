@@ -1,19 +1,22 @@
 components:
-- layout_properties: {grid_position: 'ECLONT,GPUWIX'}
-  name: recipients_label
+- components:
+  - layout_properties: {grid_position: 'JSJWXX,HXYPPR'}
+    name: recipients_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'PBCQLE,ERVDBR'}
+    name: subject_label
+    properties: {}
+    type: Label
+  - layout_properties: {grid_position: 'NWOAPT,VIGOEC'}
+    name: message_label
+    properties: {}
+    type: Label
+  layout_properties: {grid_position: 'VZBWXO,QJBPPL'}
+  name: column_panel_1
   properties: {}
-  type: Label
-- layout_properties: {grid_position: 'VFCSHK,KDSSZN'}
-  name: subject_label
-  properties: {}
-  type: Label
-- layout_properties: {grid_position: 'HETMST,SFZJNH'}
-  name: message_label
-  properties: {}
-  type: Label
-- layout_properties: {grid_position: 'RJOOAG,OHHEUO'}
-  name: item_spacer
-  properties: {height: 9.3359375}
-  type: Spacer
-container: {type: ColumnPanel}
+  type: ColumnPanel
+container:
+  properties: {background: 'theme:Tertiary Container'}
+  type: ColumnPanel
 is_package: true

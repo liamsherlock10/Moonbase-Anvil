@@ -18,18 +18,20 @@ class Analysis(AnalysisTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Define the prompt you want to ask
-    emails = anvil.server.call('check_email', platest=True, pmailbox=False, phubspot=True)
-
-    self.Summary_textbox.text = anvil.server.call("mail_summary", emails)
+    emails = anvil.server.call('check_email', platest=False, pmailbox=False, phubspot=True)
+    temp_emails = []
+    for j in range(5):
+      temp_emails.append(emails[j])
+    self.Summary_textbox.text = anvil.server.call("mail_summary", temp_emails)
     response_required = []
     no_response = []
-    for i in range(len(emails)):
-      analysis = anvil.server.call('mail_ingestion', emails[i].get("text"))
+    for i in range(len(temp_emails)):
+      analysis = anvil.server.call('mail_ingestion', temp_emails[i].get("text"))
       if analysis[0] == "1":
-        response_required.append([emails[i], analysis])
+        response_required.append([temp_emails[i], analysis])
       else:
-        print("this didn't need a response, " + i)
-        no_response.append([emails[i], "no response required"])
+        print("this didn't need a response, " + str(i))
+        no_response.append([temp_emails[i], "no response required"])
 
     new_emails = response_required + no_response
 
