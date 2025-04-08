@@ -24,7 +24,14 @@ class Analysis(AnalysisTemplate):
     #temporary test variable with email/temp_email situation
     #Let's figure out the most efficient way to break up API calls so that 
     # we don't have to do this, or figure out if there should be a maximum that we summarize. 
-    test = True
+    test = False
+    '''
+    Develop a method for OpenAI to digest this in Chunks, get small one line 
+    summaries and write a paragraph summarizing all recieved emails. 
+
+    To start: go from 5 to 20 messages, write a summary of top 3 most important 
+    emails, then paragraph summarizing the rest. 
+    '''
     emails = anvil.server.call('check_email', platest=test, pmailbox=False, phubspot=True)
     if not test:
       temp_emails = []
