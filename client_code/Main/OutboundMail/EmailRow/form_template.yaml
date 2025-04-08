@@ -12,7 +12,7 @@ components:
     name: message_label
     properties: {}
     type: Label
-  layout_properties: {grid_position: 'VZBWXO,QJBPPL'}
+  layout_properties: {grid_position: 'VZBWXO,QJBPPL', row_background: '#fdfddd'}
   name: column_panel_1
   properties: {}
   type: ColumnPanel

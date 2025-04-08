@@ -18,10 +18,20 @@ class Analysis(AnalysisTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     # Define the prompt you want to ask
-    emails = anvil.server.call('check_email', platest=False, pmailbox=False, phubspot=True)
-    temp_emails = []
-    for j in range(5):
-      temp_emails.append(emails[j])
+
+
+    '''ASK ABOUT DURING MEETING!!!'''
+    #temporary test variable with email/temp_email situation
+    #Let's figure out the most efficient way to break up API calls so that 
+    # we don't have to do this, or figure out if there should be a maximum that we summarize. 
+    test = True
+    emails = anvil.server.call('check_email', platest=test, pmailbox=False, phubspot=True)
+    if not test:
+      temp_emails = []
+      for j in range(5):
+        temp_emails.append(emails[j])
+    else:
+      temp_emails = emails
     self.Summary_textbox.text = anvil.server.call("mail_summary", temp_emails)
     response_required = []
     no_response = []

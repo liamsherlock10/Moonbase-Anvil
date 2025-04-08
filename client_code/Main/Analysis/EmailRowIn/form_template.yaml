@@ -1,28 +1,29 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'KUVUXC,OKVPXF', row_background: 'theme:Primary Container'}
+  - layout_properties: {grid_position: 'KUVUXC,OKVPXF', row_background: '#feffd6'}
     name: from_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'DVWTAO,AIWBPH'}
+  - layout_properties: {grid_position: 'DVWTAO,AIWBPH', row_background: '#feffd6'}
     name: subject_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'AXOBBY,SIINGX'}
+  - layout_properties: {grid_position: 'AXOBBY,SIINGX', row_background: '#feffd6'}
     name: message_label
     properties: {}
     type: Label
   - event_bindings: {click: Reply_button_click}
-    layout_properties: {grid_position: 'EDOODS,NESIYW'}
+    layout_properties: {grid_position: 'EDOODS,NESIYW', row_background: '#feffd6'}
     name: Reply_button
     properties: {text: Reply}
     type: Button
-  - layout_properties: {grid_position: 'AQPYQE,GVUHFW'}
+  - event_bindings: {click: forward_button_click}
+    layout_properties: {grid_position: 'AQPYQE,GVUHFW', row_background: '#feffd6'}
     name: forward_button
     properties: {text: Forward}
     type: Button
   data_bindings: []
-  layout_properties: {grid_position: 'TEDFBN,RPBPGJ', row_background: 'theme:On Primary Container'}
+  layout_properties: {full_width_row: false, grid_position: 'TEDFBN,RPBPGJ', row_background: 'theme:On Primary Container'}
   name: column_panel_1
   properties: {background: 'theme:Primary Container', border: '', role: null}
   type: ColumnPanel

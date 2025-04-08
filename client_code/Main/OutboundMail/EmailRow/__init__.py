@@ -16,10 +16,3 @@ class EmailRow(EmailRowTemplate):
     self.recipients_label.text = self.item.get("recipients", "No Recipients")
     self.subject_label.text = self.item.get("subject", "No Subject")
     self.message_label.text = self.item.get("message", "No Message")
-
-    '''
-    #Spacer design
-    self.item_spacer.background = "#555"
-    self.item_spacer.visible = True
-    '''
-    self.column_panel_1.role = "email-row"

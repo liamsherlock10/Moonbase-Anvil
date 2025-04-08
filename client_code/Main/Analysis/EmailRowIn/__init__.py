@@ -37,4 +37,13 @@ class EmailRowIn(EmailRowInTemplate):
     State.mail_text = response[2:]
     # Switch to a reply form, passing the email data if needed
     open_form("Main.MailAgent")
+
+  def forward_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    State.mail_to = ""
+    State.mail_subject = "Forward, " + self.item[0].get("subject")
+    State.mail_text = self.item[0].get("text", "")
+
+    open_form("Main.MailAgent")
+    
     
