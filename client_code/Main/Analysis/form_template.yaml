@@ -6,7 +6,7 @@ components:
 - event_bindings: {}
   layout_properties: {grid_position: 'BRKSCF,MRTJMZ'}
   name: Summary_textbox
-  properties: {enabled: false}
+  properties: {enabled: false, height: 312.64453125}
   type: TextArea
 - layout_properties: {grid_position: 'MAOENI,OOSMAZ'}
   name: AnalysisPanel

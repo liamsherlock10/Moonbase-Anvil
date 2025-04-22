@@ -18,16 +18,3 @@ class OutboundMail(OutboundMailTemplate):
     self.EmailPanel.items = email_data
     self.outBound = State.sent_folder
     self.EmailPanel.visible = True
-
-  #This button is for testing and can probably be deleted
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    current_sent = anvil.server.call('get_emails')
-    print(current_sent)
-    recipients_list = [row["recipients"] for row in current_sent]
-    subjects_list = [row["subject"] for row in current_sent]
-    messages_list = [row["message"] for row in current_sent]
-
-    print("Recipients:", recipients_list)
-    print("Subjects:", subjects_list)
-    print("Messages:", messages_list)

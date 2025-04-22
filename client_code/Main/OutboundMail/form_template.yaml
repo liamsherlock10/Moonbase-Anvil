@@ -5,11 +5,6 @@ components:
   name: EmailPanel
   properties: {item_template: Main.OutboundMail.EmailRow}
   type: RepeatingPanel
-- event_bindings: {click: button_1_click}
-  layout_properties: {grid_position: 'LUMLUN,HGMNIK'}
-  name: button_1
-  properties: {text: button_1}
-  type: Button
 container:
   properties: {col_widths: '{}', visible: true}
   type: ColumnPanel
