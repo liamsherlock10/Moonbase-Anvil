@@ -39,7 +39,11 @@ class Analysis(AnalysisTemplate):
         temp_emails.append(emails[j])
     else:
       temp_emails = emails
-    self.Summary_textbox.text = anvil.server.call("mail_summary", temp_emails)
+    '''
+    try making a list of summaries and creating a new server call for digesting that list
+    '''
+    self.Summary_textbox.text = ""
+    self.Summary_textbox.text += anvil.server.call("mail_summary", temp_emails)
     response_required = []
     no_response = []
     for i in range(len(temp_emails)):
