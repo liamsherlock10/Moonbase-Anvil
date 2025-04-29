@@ -8,10 +8,20 @@ components:
     name: subject_label
     properties: {}
     type: Label
-  - layout_properties: {grid_position: 'AXOBBY,SIINGX', row_background: '#feffd6'}
-    name: message_label
+  - components:
+    - layout_properties: {grid_position: 'DOLJZJ,HKOHPL'}
+      name: message_label
+      properties: {}
+      type: Label
+    layout_properties: {grid_position: 'VXAOXV,XROEFQ', row_background: '#feffd6'}
+    name: message_container
     properties: {}
-    type: Label
+    type: ColumnPanel
+  - event_bindings: {click: show_message_button_click}
+    layout_properties: {grid_position: 'KXXCBJ,PJFRKH', row_background: '#feffd6'}
+    name: show_message_button
+    properties: {text: Show Message}
+    type: Button
   - event_bindings: {click: Reply_button_click}
     layout_properties: {grid_position: 'EDOODS,NESIYW', row_background: '#feffd6'}
     name: Reply_button

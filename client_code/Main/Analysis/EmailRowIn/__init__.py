@@ -22,6 +22,7 @@ class EmailRowIn(EmailRowInTemplate):
     self.message_label.text = email.get("text", "")
 
     self.column_panel_1.role = "email-row"
+    self.message_container.visible = False
 
     # Optionally, you could display analysis information too:
     #self.analysis_label.text = str(self.item[1])
@@ -45,5 +46,9 @@ class EmailRowIn(EmailRowInTemplate):
     State.mail_text = self.item[0].get("text", "")
 
     open_form("Main.MailAgent")
+
+  def show_message_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.message_container.visible = not self.message_container.visible
     
     
