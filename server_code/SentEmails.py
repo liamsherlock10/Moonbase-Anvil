@@ -29,7 +29,6 @@ def add_email(recipients, subject, message):
     if isinstance(recipients, list):
         recipients = ",".join(recipients)
     '''
-  
     app_tables.sentemails.add_row(
         recipients=recipients,
         subject=subject,
